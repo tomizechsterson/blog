@@ -1,16 +1,20 @@
 ---
-name: Tails Azimuth
+name: Tomas Eychaner
 avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
+occupation: Software Engineer
+company: 
+email: tomas.eychaner@gmail.com
 linkedin: https://www.linkedin.com
-github: https://github.com
+github: https://github.com/tomizechsterson
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+I write software and solve problems. I learn unrelentingly, and pursue excellence with resilience and passion. Although,
+that being said, it would probably be good if I actually _built_ something about which I could write.
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
+I intend for this blog to generally be about my technological foibles and adventures with learning things in the
+Linux ecosystem while using non-Microsoft tools. I do enjoy sharing knowledge, and I find myself tinkering with
+quite a few different side projects at various times, so hopefully that will give me enough material to post more
+often than never. Feel free to click around above.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+This page will, at some point, have information about me. Possibly some interests, things I'm currently working on,
+and maybe even books I'm reading. Specifically, GameStorming by Dave Gray, Sunni Brown, and James Macanufo.

@@ -1,8 +1,9 @@
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
+  title: 'My Site',
+  author: 'Tomas Eychaner',
+  headerTitle: 'My Site That Has Things',
+  description:
+    'This site will eventually have things. With any luck, these things will be meaningful and/or valuable in some way.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
@@ -11,7 +12,7 @@ const siteMetadata = {
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'address@yoursite.com',
-  github: 'https://github.com',
+  github: 'https://github.com/tomizechsterson',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
