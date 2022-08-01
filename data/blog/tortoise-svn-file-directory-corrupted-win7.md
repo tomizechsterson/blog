@@ -1,6 +1,6 @@
 ---
 title: Tortoise SVN Directory Corrupted in Win7
-date: '2022-07-30'
+date: '2019-01-12'
 tags: ['windows','7','svn','directory','corrupted']
 summary: When a Tortoise SVN file directory is corrupted in Windows 7, the solutions that Google produces work for
    everyone else but me. Go figure. This is the story of my glorious triumph over Tortoise's efforts to thwart my
