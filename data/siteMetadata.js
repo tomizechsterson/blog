@@ -11,7 +11,7 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'address@yoursite.com',
+  email: 'tomas.eychaner@gmail.com',
   github: 'https://github.com/tomizechsterson',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
