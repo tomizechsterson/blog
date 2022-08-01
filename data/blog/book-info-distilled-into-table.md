@@ -2,7 +2,7 @@
 title: Book Info Distilled Into a Table
 date: '2022-07-31'
 tags: ['books']
-summary: Some book information in table form
+summary: Some book information placed in a table that I was having a hard time finding at one point
 images: []
 layout: PostLayout
 canonicalUrl:
