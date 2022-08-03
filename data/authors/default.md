@@ -2,7 +2,7 @@
 name: Tomas Eychaner
 avatar: /static/images/avatar.png
 occupation: Software Engineer
-company: 
+company:
 email: tomas.eychaner@gmail.com
 linkedin: https://www.linkedin.com
 github: https://github.com/tomizechsterson

@@ -26,7 +26,7 @@ const TOCInline = ({
   fromHeading = 1,
   toHeading = 6,
   asDisclosure = false,
-  exclude = '',
+  exclude = ''
 }) => {
   const re = Array.isArray(exclude)
     ? new RegExp('^(' + exclude.join('|') + ')$', 'i')

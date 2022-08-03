@@ -13,12 +13,12 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
 
     const res = await fetch(`/api/${siteMetadata.newsletter.provider}`, {
       body: JSON.stringify({
-        email: inputEl.current.value,
+        email: inputEl.current.value
       }),
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      method: 'POST',
+      method: 'POST'
     })
 
     const { error } = await res.json()

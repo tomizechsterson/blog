@@ -1,17 +1,18 @@
 ---
 title: Tortoise SVN Directory Corrupted in Win7
 date: '2019-01-12'
-tags: ['windows','7','svn','directory','corrupted']
-summary: When a Tortoise SVN file directory is corrupted in Windows 7, the solutions that Google produces work for
-   everyone else but me. Go figure. This is the story of my glorious triumph over Tortoise's efforts to thwart my
-   progress in whatever I was working on at the time.
+tags: ['windows', '7', 'svn', 'directory', 'corrupted']
+summary:
+  When a Tortoise SVN file directory is corrupted in Windows 7, the solutions that Google produces work for
+  everyone else but me. Go figure. This is the story of my glorious triumph over Tortoise's efforts to thwart my
+  progress in whatever I was working on at the time.
 images: []
 layout: PostLayout
 canonicalUrl:
 authors: ['default']
 ---
 
-**NOTE:** This is a *very* old post I made way back on 2/20/2010 that I'm bringing here to help test as I become
+**NOTE:** This is a _very_ old post I made way back on 2/20/2010 that I'm bringing here to help test as I become
 more familiar with this blogging business, and to keep everything in one place. If you want the original, it should
 still be [here](https://tomizechsterson.blogspot.com/2010/02/tortoise-svn-file-or-directory-is.html).
 
@@ -34,6 +35,7 @@ operation, but I finally got fed up with that and finding the same advice with m
 around Windows to see what I could come up with. Turns out, I hit a gold mine (at least for my case).
 
 Here's what I did to fix the problem for me:
+
 1. Click the start menu button and then click in the search box.
 2. Type in "windows index"
 3. This should bring up something called "Indexing Options", which can also be found in the control panel if you change
