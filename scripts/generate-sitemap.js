@@ -14,7 +14,7 @@ const siteMetadata = require('../data/siteMetadata')
     'public/tags/**/*.xml',
     '!pages/_*.js',
     '!pages/_*.tsx',
-    '!pages/api',
+    '!pages/api'
   ])
 
   const sitemap = `
@@ -59,7 +59,7 @@ const siteMetadata = require('../data/siteMetadata')
 
   const formatted = prettier.format(sitemap, {
     ...prettierConfig,
-    parser: 'html',
+    parser: 'html'
   })
 
   // eslint-disable-next-line no-sync

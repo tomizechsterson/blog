@@ -17,9 +17,9 @@ export default async (req, res) => {
     const response = await fetch(API_ROUTE, {
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      method: 'POST',
+      method: 'POST'
     })
 
     if (response.status >= 400) {

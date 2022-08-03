@@ -14,9 +14,9 @@ export default async (req, res) => {
       method: 'POST',
       headers: {
         Authorization: `Token ${API_KEY}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email, double_opt_in: false }),
+      body: JSON.stringify({ email, double_opt_in: false })
     })
 
     if (response.status >= 400) {
