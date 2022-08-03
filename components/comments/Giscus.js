@@ -27,7 +27,7 @@ const Giscus = () => {
       reactions,
       metadata,
       inputPosition,
-      lang,
+      lang
     } = siteMetadata?.comment?.giscusConfig
 
     const script = document.createElement('script')

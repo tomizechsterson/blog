@@ -14,18 +14,18 @@ export default async (req, res) => {
         method: 'POST',
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         // You can add additional params here i.e. SMS, etc.
         // https://developers.klaviyo.com/en/reference/subscribe
         body: JSON.stringify({
-          profiles: [{ email: email }],
-        }),
+          profiles: [{ email: email }]
+        })
       }
     )
     if (response.status >= 400) {
       return res.status(400).json({
-        error: `There was an error subscribing to the list.`,
+        error: `There was an error subscribing to the list.`
       })
     }
     return res.status(201).json({ error: '' })
