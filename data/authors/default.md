@@ -17,4 +17,4 @@ quite a few different side projects at various times, so hopefully that will giv
 often than never. Feel free to click around above.
 
 This page will, at some point, have information about me. Possibly some interests, things I'm currently working on,
-and maybe even books I'm reading. Specifically, GameStorming by Dave Gray, Sunni Brown, and James Macanufo.
+and maybe even books I'm reading. Specifically, Refactoring: Ruby Edition.
