@@ -4,7 +4,7 @@ date: '2021-07-18'
 tags: ['books']
 summary: Some book information placed in a table that I was having a hard time finding at one point
 images: []
-layout: PostLayout
+layout: PostSimple
 canonicalUrl:
 authors: ['default']
 ---
@@ -16,7 +16,7 @@ more blogging practice). Hopefully, the walls of text on the wikipedia pages are
 ### Ben Shapiro:
 
 | Title                                        | Publication Year |
-|----------------------------------------------|------------------|
+| -------------------------------------------- | ---------------- |
 | Porn Generation                              | 2005             |
 | Project President                            | 2008             |
 | Primetime Propaganda                         | 2011             |
@@ -33,7 +33,7 @@ more blogging practice). Hopefully, the walls of text on the wikipedia pages are
 ### Dan Bongino:
 
 | Title                  | Publication Year |
-|------------------------|------------------|
+| ---------------------- | ---------------- |
 | Life Inside the Bubble | 2013             |
 | The Fight              | 2016             |
 | Follow the Money       | 2020             |
@@ -41,7 +41,7 @@ more blogging practice). Hopefully, the walls of text on the wikipedia pages are
 ### Mark Levin:
 
 | Title                  | Publication Year |
-|------------------------|------------------|
+| ---------------------- | ---------------- |
 | Men in Black           | 2005             |
 | Liberty & Tyranny      | 2009             |
 | Ameritopia             | 2012             |
