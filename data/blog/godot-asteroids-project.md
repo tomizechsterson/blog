@@ -9,4 +9,5 @@ canonicalUrl:
 authors: ['default']
 ---
 
-Click here to see the current state of the project. If you want to see where we came from, click here to check that out.
+Click here to see the current state of the project. If you want
+to see where we came from, click [here](/static/games/asteroids-initial/space-asteroid.html) to check that out.
