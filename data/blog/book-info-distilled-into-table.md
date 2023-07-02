@@ -1,10 +1,10 @@
 ---
 title: Book Info Distilled Into a Table
-date: '2021-07-18'
+date: '2021-07-18T20:00:00Z'
 tags: ['books']
 summary: Some book information placed in a table that I was having a hard time finding at one point
 images: []
-layout: PostSimple
+layout: PostLayoutReduced
 canonicalUrl:
 authors: ['default']
 ---

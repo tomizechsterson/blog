@@ -1,10 +1,10 @@
 ---
 title: Godot Asteroids Project - Current
-date: '2023-07-01'
+date: '2023-07-01T13:32:00Z'
 tags: ['godot', 'asteroids', 'tutorial']
 summary: The current state of the post-tutorial Asteroids game
 images: []
-layout: PostSimple
+layout: PostLayoutReduced
 canonicalUrl:
 authors: ['default']
 ---
