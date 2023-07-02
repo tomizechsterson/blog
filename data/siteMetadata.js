@@ -7,7 +7,7 @@ const siteMetadata = {
     "Ideally, they'll be valuable for someone other than me, but let's not get ahead of ourselves.",
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  siteUrl: 'https://www.tomizechsterson.com/',
   siteRepo: '',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
