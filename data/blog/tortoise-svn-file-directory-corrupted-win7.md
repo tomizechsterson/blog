@@ -7,7 +7,7 @@ summary:
   everyone else but me. Go figure. This is the story of my glorious triumph over Tortoise's efforts to thwart my
   progress in whatever I was working on at the time.
 images: []
-layout: PostLayout
+layout: PostSimple
 canonicalUrl:
 authors: ['default']
 ---
