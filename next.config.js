@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app;
-  script-src-elem vercel.live;
+  script-src-elem 'unsafe-inline' vercel.live;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
   media-src 'none';
