@@ -1,6 +1,5 @@
 ## Source: https://github.com/alexkaratarakis/gitattributes
 ## Modified * text=auto to * text=auto eol=lf to force LF endings.
-
 ## GITATTRIBUTES FOR WEB PROJECTS
 #
 # These settings are for any web project.
@@ -183,5 +182,6 @@ Procfile          text
 *.*rc             text
 # Ignore files (like .npmignore or .gitignore)
 *.*ignore         text
+*.pck,*.wasm filter=lfs diff=lfs merge=lfs -text
 *.pck filter=lfs diff=lfs merge=lfs -text
 *.wasm filter=lfs diff=lfs merge=lfs -text
