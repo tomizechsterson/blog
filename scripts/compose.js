@@ -7,17 +7,15 @@ const root = process.cwd()
 
 const getAuthors = () => {
   const authorPath = path.join(root, 'data', 'authors')
-  const authorList = fs.readdirSync(authorPath).map((filename) => path.parse(filename).name)
-  return authorList
+  return fs.readdirSync(authorPath).map((filename) => path.parse(filename).name)
 }
 
 const getLayouts = () => {
   const layoutPath = path.join(root, 'layouts')
-  const layoutList = fs
+  return fs
     .readdirSync(layoutPath)
     .map((filename) => path.parse(filename).name)
     .filter((file) => file.toLowerCase().includes('post'))
-  return layoutList
 }
 
 const genFrontMatter = (answers) => {
