@@ -1,6 +1,7 @@
 ---
 title: Tortoise SVN Directory Corrupted in Win7
 date: '2019-01-12T19:00:00Z'
+lastmod: '2023-07-02T22:50:00Z'
 tags: ['windows-7', 'svn', 'directory', 'corrupted']
 summary:
   When a Tortoise SVN file directory is corrupted in Windows 7, the solutions that Google produces work for
@@ -14,7 +15,13 @@ authors: ['default']
 
 **NOTE:** This is a _very_ old post I made way back on 2/20/2010 that I'm bringing here to help test as I become
 more familiar with this blogging business, and to keep everything in one place. If you want the original, it should
-still be [here](https://tomizechsterson.blogspot.com/2010/02/tortoise-svn-file-or-directory-is.html).
+still be [here](https://tomizechsterson.blogspot.com/2010/02/tortoise-svn-file-or-directory-is.html). Also, that post
+refers to the _actual_ original post I made, which was on someone else's blog. If you want to see the **original**
+original, click [here](https://web.archive.org/web/20120126125715/http://schleichermann.wordpress.com:80/2009/12/09/svn-tortoisesvn-cant-move-the-file-or-directory-is-corrupted-and-unreadable-windows-7/)
+and look for the post by "Tom" on February 16, 2010, at 12:06 AM, and if you want to see some rather funny responses,
+there's some gems below that as well.
+
+Now, on with the show...
 
 I figured a good first blog would be something that I've discovered with Windows 7 Ultimate 64-bit and Tortoise SVN
 1.6.7 Build 18415 - 64 Bit with Subversion 1.6.9. For a while, I had the most difficult time doing commits and updates
