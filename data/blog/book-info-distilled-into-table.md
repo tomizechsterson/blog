@@ -10,8 +10,12 @@ authors: ['default']
 ---
 
 I've discovered that, for whatever reason, some authors don't seem to have a nice list of books that they've published
-with year of publication. This post is simply such a list, so I can more easily access this information (and for some
-more blogging practice). Hopefully, the walls of text on the wikipedia pages are/were accurate.
+with year of publication.[^1] [^2] This post is simply such a list, so I can more easily access this information (and for
+some more blogging practice). Hopefully, the walls of text on the wikipedia pages are/were accurate.
+
+[^1]:
+    I'm also not a very patient person, so it's very likely I would've found something had I bothered to look for a
+    few more seconds...
 
 ### Ben Shapiro:
 
@@ -49,3 +53,5 @@ more blogging practice). Hopefully, the walls of text on the wikipedia pages are
 | Plunder and Deceit     | 2017             |
 | Unfreedom of the Press | 2019             |
 | American Marxism       | 2021             |
+
+[^2]: ... and now that I've discovered THIS feature, I plan on abusing the ever-loving crap out of it.
