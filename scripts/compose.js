@@ -39,16 +39,15 @@ const genFrontMatter = (answers) => {
   let frontMatter = dedent`---
   title: ${answers.title ? answers.title : 'Untitled'}
   date: '${date}'
-  tags: [${answers.tags ? tags : ''}]${answers.draft === 'yes' ? '\ndraft: true' : ''}
+  tags: [${answers.tags ? tags : ''}]
   summary: ${answers.summary ? answers.summary : ' '}
-  images: []
   layout: ${answers.layout}
   canonicalUrl: ${answers.canonicalUrl}
   `
 
-  if (answers.authors.length > 0) {
-    frontMatter = frontMatter + '\n' + `authors: [${authorArray}]`
-  }
+  if (answers.draft === 'yes') frontMatter = frontMatter + '\ndraft: true'
+
+  if (answers.authors.length > 0) frontMatter = frontMatter + `\nauthors: [${authorArray}]`
 
   frontMatter = frontMatter + '\n---\n'
 
@@ -63,27 +62,9 @@ inquirer
       type: 'input'
     },
     {
-      name: 'extension',
-      message: 'Choose post extension:',
-      type: 'list',
-      choices: ['mdx', 'md']
-    },
-    {
-      name: 'authors',
-      message: 'Choose authors:',
-      type: 'checkbox',
-      choices: getAuthors
-    },
-    {
       name: 'summary',
       message: 'Enter post summary:',
       type: 'input'
-    },
-    {
-      name: 'draft',
-      message: 'Set post as draft?',
-      type: 'list',
-      choices: ['yes', 'no']
     },
     {
       name: 'tags',
@@ -94,7 +75,26 @@ inquirer
       name: 'layout',
       message: 'Select layout',
       type: 'list',
+      default: 'PostLayoutReduced',
       choices: getLayouts
+    },
+    {
+      name: 'extension',
+      message: 'Choose post extension:',
+      type: 'list',
+      choices: ['md', 'mdx']
+    },
+    {
+      name: 'authors',
+      message: 'Choose authors:',
+      type: 'checkbox',
+      choices: getAuthors
+    },
+    {
+      name: 'draft',
+      message: 'Set post as draft?',
+      type: 'list',
+      choices: ['yes', 'no']
     },
     {
       name: 'canonicalUrl',
@@ -110,10 +110,13 @@ inquirer
       .replace(/ /g, '-')
       .replace(/-+/g, '-')
     const frontMatter = genFrontMatter(answers)
+
     if (!fs.existsSync('data/blog')) fs.mkdirSync('data/blog', { recursive: true })
+
     const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${
       answers.extension ? answers.extension : 'md'
     }`
+
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
       if (err) {
         throw err
