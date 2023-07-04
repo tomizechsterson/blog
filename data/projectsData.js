@@ -7,6 +7,12 @@ const projectsData = [
     href: '/blog/godot-asteroids-project-initial'
   },
   {
+    title: 'Retro Platformer Tutorial',
+    description: 'A Godot walkthrough that creates a side-scrolling platformer',
+    imgSrc: '/static/images/godot_logo_retro_platformer.png',
+    href: '/blog/godot-retro-platformer-initial'
+  },
+  {
     title: 'Air Combat Tutorial',
     description: "A Godot walkthrough that creates a basic side-scrolling shoot-'em-up",
     imgSrc: '/static/images/godot_logo_air_combat.png',
