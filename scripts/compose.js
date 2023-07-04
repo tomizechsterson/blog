@@ -49,7 +49,7 @@ const genFrontMatter = (answers) => {
 
   if (answers.authors.length > 0) frontMatter = frontMatter + `\nauthors: [${authorArray}]`
 
-  frontMatter = frontMatter + '\n---\n'
+  frontMatter = frontMatter + '\n---\n\n\n'
 
   return frontMatter
 }

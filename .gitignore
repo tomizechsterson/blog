@@ -36,6 +36,3 @@ yarn-error.log*
 .env.production.local
 /.idea/
 /.env.example
-
-# Gimp files when I edit images in place
-*.xcf

@@ -3,10 +3,8 @@ title: Book Info Distilled Into a Table
 date: '2021-07-18T20:00:00Z'
 tags: ['books']
 summary: Some book information placed in a table that I was having a hard time finding at one point
-images: []
 layout: PostLayoutReduced
 canonicalUrl:
-authors: ['default']
 ---
 
 I've discovered that, for whatever reason, some authors don't seem to have a nice list of books that they've published
