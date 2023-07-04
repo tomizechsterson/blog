@@ -19,12 +19,18 @@ const getLayouts = () => {
 }
 
 const genFrontMatter = (answers) => {
-  let d = new Date()
-  const date = [
-    d.getFullYear(),
-    ('0' + (d.getMonth() + 1)).slice(-2),
-    ('0' + d.getDate()).slice(-2)
-  ].join('-')
+  const d = new Date()
+  const date =
+    [d.getFullYear(), ('0' + (d.getMonth() + 1)).slice(-2), ('0' + d.getDate()).slice(-2)].join(
+      '-'
+    ) +
+    'T' +
+    [
+      ('0' + d.getHours()).slice(-2),
+      ('0' + d.getMinutes()).slice(-2),
+      ('0' + d.getSeconds()).slice(-2)
+    ].join(':') +
+    'Z'
   const tagArray = answers.tags.split(',')
   tagArray.forEach((tag, index) => (tagArray[index] = tag.trim()))
   const tags = "'" + tagArray.join("','") + "'"
@@ -33,8 +39,7 @@ const genFrontMatter = (answers) => {
   let frontMatter = dedent`---
   title: ${answers.title ? answers.title : 'Untitled'}
   date: '${date}'
-  tags: [${answers.tags ? tags : ''}]
-  draft: ${answers.draft === 'yes' ? true : false}
+  tags: [${answers.tags ? tags : ''}]${answers.draft === 'yes' ? '\ndraft: true' : ''}
   summary: ${answers.summary ? answers.summary : ' '}
   images: []
   layout: ${answers.layout}
@@ -45,7 +50,7 @@ const genFrontMatter = (answers) => {
     frontMatter = frontMatter + '\n' + `authors: [${authorArray}]`
   }
 
-  frontMatter = frontMatter + '\n---'
+  frontMatter = frontMatter + '\n---\n'
 
   return frontMatter
 }
