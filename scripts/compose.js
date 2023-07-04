@@ -7,26 +7,30 @@ const root = process.cwd()
 
 const getAuthors = () => {
   const authorPath = path.join(root, 'data', 'authors')
-  const authorList = fs.readdirSync(authorPath).map((filename) => path.parse(filename).name)
-  return authorList
+  return fs.readdirSync(authorPath).map((filename) => path.parse(filename).name)
 }
 
 const getLayouts = () => {
   const layoutPath = path.join(root, 'layouts')
-  const layoutList = fs
+  return fs
     .readdirSync(layoutPath)
     .map((filename) => path.parse(filename).name)
     .filter((file) => file.toLowerCase().includes('post'))
-  return layoutList
 }
 
 const genFrontMatter = (answers) => {
-  let d = new Date()
-  const date = [
-    d.getFullYear(),
-    ('0' + (d.getMonth() + 1)).slice(-2),
-    ('0' + d.getDate()).slice(-2)
-  ].join('-')
+  const d = new Date()
+  const date =
+    [d.getFullYear(), ('0' + (d.getMonth() + 1)).slice(-2), ('0' + d.getDate()).slice(-2)].join(
+      '-'
+    ) +
+    'T' +
+    [
+      ('0' + d.getHours()).slice(-2),
+      ('0' + d.getMinutes()).slice(-2),
+      ('0' + d.getSeconds()).slice(-2)
+    ].join(':') +
+    'Z'
   const tagArray = answers.tags.split(',')
   tagArray.forEach((tag, index) => (tagArray[index] = tag.trim()))
   const tags = "'" + tagArray.join("','") + "'"
@@ -36,18 +40,16 @@ const genFrontMatter = (answers) => {
   title: ${answers.title ? answers.title : 'Untitled'}
   date: '${date}'
   tags: [${answers.tags ? tags : ''}]
-  draft: ${answers.draft === 'yes' ? true : false}
   summary: ${answers.summary ? answers.summary : ' '}
-  images: []
   layout: ${answers.layout}
   canonicalUrl: ${answers.canonicalUrl}
   `
 
-  if (answers.authors.length > 0) {
-    frontMatter = frontMatter + '\n' + `authors: [${authorArray}]`
-  }
+  if (answers.draft === 'yes') frontMatter = frontMatter + '\ndraft: true'
 
-  frontMatter = frontMatter + '\n---'
+  if (answers.authors.length > 0) frontMatter = frontMatter + `\nauthors: [${authorArray}]`
+
+  frontMatter = frontMatter + '\n---\n'
 
   return frontMatter
 }
@@ -60,27 +62,9 @@ inquirer
       type: 'input'
     },
     {
-      name: 'extension',
-      message: 'Choose post extension:',
-      type: 'list',
-      choices: ['mdx', 'md']
-    },
-    {
-      name: 'authors',
-      message: 'Choose authors:',
-      type: 'checkbox',
-      choices: getAuthors
-    },
-    {
       name: 'summary',
       message: 'Enter post summary:',
       type: 'input'
-    },
-    {
-      name: 'draft',
-      message: 'Set post as draft?',
-      type: 'list',
-      choices: ['yes', 'no']
     },
     {
       name: 'tags',
@@ -91,7 +75,26 @@ inquirer
       name: 'layout',
       message: 'Select layout',
       type: 'list',
+      default: 'PostLayoutReduced',
       choices: getLayouts
+    },
+    {
+      name: 'extension',
+      message: 'Choose post extension:',
+      type: 'list',
+      choices: ['md', 'mdx']
+    },
+    {
+      name: 'authors',
+      message: 'Choose authors:',
+      type: 'checkbox',
+      choices: getAuthors
+    },
+    {
+      name: 'draft',
+      message: 'Set post as draft?',
+      type: 'list',
+      choices: ['yes', 'no']
     },
     {
       name: 'canonicalUrl',
@@ -107,10 +110,13 @@ inquirer
       .replace(/ /g, '-')
       .replace(/-+/g, '-')
     const frontMatter = genFrontMatter(answers)
+
     if (!fs.existsSync('data/blog')) fs.mkdirSync('data/blog', { recursive: true })
+
     const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${
       answers.extension ? answers.extension : 'md'
     }`
+
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
       if (err) {
         throw err
