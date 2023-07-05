@@ -36,7 +36,7 @@ export default function ProjectLayout({ children, frontMatter, testProp }) {
             </div>
             {images &&
               images.map((img) => {
-                return <Image src={img} key={img} width="356px" height="200px" />
+                return <Image src={img} key={img} alt="screenshot" width="356px" height="200px" />
               })}
             TEST PROP: {testProp}
           </div>
