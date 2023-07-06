@@ -1,6 +1,6 @@
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import PageTitle from '@/components/PageTitle'
-import { getFileBySlug } from '@/lib/mdx'
+import { getAllFilesFrontMatter, getFileBySlug } from '@/lib/mdx'
 import { getProjectSlugs } from '@/lib/projects'
 
 export async function getStaticPaths() {
@@ -13,9 +13,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const projectData = await getFileBySlug('projects', params.slug)
-  // Get list of project slugs to send to layout, so we can display links to other projects
-  // Add this list to projectData similar to how testProp is
-  projectData.testProp = 'BLAH'
+  const allProjectsFrontmatter = await getAllFilesFrontMatter('projects')
+  projectData.projects = allProjectsFrontmatter.map(({ name, slug }) => ({
+    name: name,
+    slug: slug
+  }))
   return {
     props: {
       ...projectData
@@ -24,7 +26,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Project(projectData) {
-  const { mdxSource, frontMatter } = projectData
+  const { mdxSource, frontMatter, projects } = projectData
 
   return (
     <>
@@ -33,7 +35,7 @@ export default function Project(projectData) {
           layout="ProjectLayout"
           mdxSource={mdxSource}
           frontMatter={frontMatter}
-          testProp={'SOMETHING'}
+          projects={projects}
         />
       ) : (
         <div className="mt-24 text-center">

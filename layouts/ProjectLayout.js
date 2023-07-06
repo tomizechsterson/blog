@@ -2,7 +2,7 @@ import Image from '@/components/Image'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 
-export default function ProjectLayout({ children, frontMatter, testProp }) {
+export default function ProjectLayout({ children, frontMatter, projects }) {
   const { name, initialDemo, currentDemo, images } = frontMatter
 
   return (
@@ -20,7 +20,7 @@ export default function ProjectLayout({ children, frontMatter, testProp }) {
               <Link
                 href={initialDemo}
                 aria-label={`Link to ${name} initial demo`}
-                className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
               >
                 Initial Demo
               </Link>
@@ -28,7 +28,7 @@ export default function ProjectLayout({ children, frontMatter, testProp }) {
                 <Link
                   href={currentDemo}
                   aria-label={`Link to ${name} current demo`}
-                  className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 >
                   Current Demo
                 </Link>
@@ -38,7 +38,23 @@ export default function ProjectLayout({ children, frontMatter, testProp }) {
               images.map((img) => {
                 return <Image src={img} key={img} alt="screenshot" width="356px" height="200px" />
               })}
-            TEST PROP: {testProp}
+            Other Projects:
+            <ul>
+              {projects.map((project) => {
+                if (project.slug === frontMatter.slug) return
+                const { name, slug } = project
+                return (
+                  <li key={slug} className="py-1">
+                    <Link
+                      href={`/projects/${slug}`}
+                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                    >
+                      {name}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
           <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">{children}</div>
         </div>
