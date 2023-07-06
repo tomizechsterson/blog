@@ -10,15 +10,18 @@ images:
   ]
 ---
 
-This is the Space Asteroids Godot tutorial project page. The links above the screen shots will take you to the initial
-version (as it was at the end of the walkthrough), and the current state of the project, as described by the release
-notes below.
+This is the Space Asteroids [Godot tutorial][1] project page. The links above the screenshots will take you to the
+initial version (as it was at the end of the walkthrough), and the current state of the project, as described by the
+release notes below. Feel free to check back regularly to see new features and bug fixes.
 
-This tutorial taught several techniques, and a good workflow when creating new features. There's some extra assets that
-I'd like to make use of, so I'm going to try to do that over time.
+This tutorial builds a top-down shooter game using an Asteroids-like theme while teaching several techniques, and a
+good workflow when creating new features. There's some extra assets that I'd like to make use of, so I'm going to try
+to do that over time.
 
 ### Release Notes
 
 ##### 07-01-2023
 
 - Fixed laser sound to continue playing even after the laser is removed
+
+[1]: https://www.codingkaiju.com/tutorials/space-asteroid-arcade-shooter/

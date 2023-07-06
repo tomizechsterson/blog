@@ -9,8 +9,12 @@ images:
   ]
 ---
 
-This is the Air Combat Godot tutorial page. Feel free to click the links above the screenshots if you'd like to try a
-demo.
+This is the Air Combat [Godot tutorial][1] page. Feel free to click the links above the screenshots if you'd like to
+try a demo. Also, be sure to check back regularly to see new features and bug fixes.
 
-This was a shorter tutorial, so the gameplay is pretty basic, and there are some glaring issues. I intend to address
-these gradually over time.
+A couple of the big issues I intend to address are the slow handling of the plane (these controls just don't feel crisp
+enough for me), and the fact that if you fly too far down (you don't have to go far), the camera will expose the bottom
+of the background images, which is not a good look. Over time, hopefully these will get addressed. Also, the tutorial
+includes some extra assets that don't end up getting used, so it'd be great practice to find a use for them.
+
+[1]: https://devga.me/tutorials/godot2d/
