@@ -1,6 +1,10 @@
 ---
 name: Retro Platformer
+summary: A Godot tutorial that creates a simple side-scrolling platformer
+cardImg: '/static/images/project-cards/godot_logo_retro_platformer.png'
+cardSortOrder: 2
 date: '2023-07-04T11:51:58Z'
+lastMod: '2023-07-04T11:51:58Z'
 initialDemo: '/static/games/retro-platformer-initial/RetroPlatformer.html'
 images: ['/static/images/screenshots/retro-platformer/gameplay.png']
 ---

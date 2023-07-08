@@ -32,9 +32,10 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl 
   )
 }
 
-export const PageSEO = ({ title, description }) => {
+const commonSEOWebsite = (title, description) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+
   return (
     <CommonSEO
       title={title}
@@ -46,19 +47,31 @@ export const PageSEO = ({ title, description }) => {
   )
 }
 
+export const PageSEO = ({ title, description }) => {
+  return commonSEOWebsite(title, description)
+}
+
+export const ProjectsSEO = ({ title, description }) => {
+  return (
+    <>
+      {commonSEOWebsite(title, description)}
+      <Head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${description} - RSS feed`}
+          href={`${siteMetadata.siteUrl}/projects.xml`}
+        />
+      </Head>
+    </>
+  )
+}
+
 export const TagSEO = ({ title, description }) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const router = useRouter()
   return (
     <>
-      <CommonSEO
-        title={title}
-        description={description}
-        ogType="website"
-        ogImage={ogImageUrl}
-        twImage={twImageUrl}
-      />
+      {commonSEOWebsite(title, description)}
       <Head>
         <link
           rel="alternate"
@@ -81,7 +94,6 @@ export const BlogSEO = ({
   images = [],
   canonicalUrl
 }) => {
-  const router = useRouter()
   const publishedAt = new Date(date).toISOString()
   const modifiedAt = new Date(lastmod || date).toISOString()
   let imagesArr =

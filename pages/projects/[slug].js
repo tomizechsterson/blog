@@ -1,6 +1,8 @@
+import fs from 'fs'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import PageTitle from '@/components/PageTitle'
-import { getAllFilesFrontMatter, getFileBySlug } from '@/lib/mdx'
+import { generateProjectsRss } from '@/lib/generate-rss'
+import { dateSortDesc, getAllFilesFrontMatter, getFileBySlug } from '@/lib/mdx'
 import { getProjectSlugs } from '@/lib/projects'
 
 export async function getStaticPaths() {
@@ -18,6 +20,16 @@ export async function getStaticProps({ params }) {
     name: name,
     slug: slug
   }))
+
+  // rss
+  if (allProjectsFrontmatter.length > 0) {
+    const sortedProjectsByLastMod = allProjectsFrontmatter.sort((a, b) =>
+      dateSortDesc(a.lastMod, b.lastMod)
+    )
+    const rssContents = generateProjectsRss(sortedProjectsByLastMod, 'projects.xml')
+    fs.writeFileSync('./public/projects.xml', rssContents)
+  }
+
   return {
     props: {
       ...projectData

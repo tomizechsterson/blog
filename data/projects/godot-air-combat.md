@@ -1,6 +1,10 @@
 ---
 name: Air Combat
+summary: A Godot walkthrough that creates a basic side-scrolling shoot-'em-up
+cardImg: /static/images/project-cards/godot_logo_air_combat.png
+cardSortOrder: 3
 date: '2023-07-02T19:44:08Z'
+lastMod: '2023-07-02T19:44:08Z'
 initialDemo: '/static/games/air-combat-initial/AirCombat.html'
 images:
   [
