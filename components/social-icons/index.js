@@ -1,13 +1,19 @@
 import Mail from './mail.svg'
 import Github from './github.svg'
 import Linkedin from './linkedin.svg'
+import Pluralsight from './pluralsight.svg'
+import Rumble from './rumble.svg'
+import RSS from './rss.svg'
 
 // Icons taken from: https://simpleicons.org/
 
 const components = {
   mail: Mail,
   github: Github,
-  linkedin: Linkedin
+  linkedin: Linkedin,
+  pluralsight: Pluralsight,
+  rumble: Rumble,
+  rss: RSS
 }
 
 const SocialIcon = ({ kind, href, size = 8 }) => {

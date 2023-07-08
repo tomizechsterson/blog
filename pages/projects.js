@@ -1,9 +1,16 @@
 import siteMetadata from '@/data/siteMetadata'
-import projectsData from '@/data/projectsData'
 import Card from '@/components/Card'
 import { PageSEO } from '@/components/SEO'
+import { getAllFilesFrontMatter } from '@/lib/mdx'
 
-export default function Projects() {
+export async function getStaticProps() {
+  const projectFrontMatters = await getAllFilesFrontMatter('projects')
+  const sortedFrontMatters = projectFrontMatters.sort((a, b) => a.cardSortOrder - b.cardSortOrder)
+
+  return { props: { sortedFrontMatters } }
+}
+
+export default function Projects({ sortedFrontMatters }) {
   return (
     <>
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
@@ -12,20 +19,19 @@ export default function Projects() {
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Projects
           </h1>
-          {/*Showcase your projects with a hero image (16 x 9)*/}
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             Things I'm currently working on, or believe are neat to share.
           </p>
         </div>
         <div className="container py-12">
           <div className="-m-4 flex flex-wrap">
-            {projectsData.map((d) => (
+            {sortedFrontMatters.map((f) => (
               <Card
-                key={d.title}
-                title={d.title}
-                description={d.description}
-                imgSrc={d.imgSrc}
-                href={d.href}
+                key={f.slug}
+                title={f.name}
+                description={f.summary}
+                imgSrc={f.cardImg}
+                href={`/projects/${f.slug}`}
               />
             ))}
           </div>

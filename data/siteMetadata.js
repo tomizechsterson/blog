@@ -7,7 +7,7 @@ const siteMetadata = {
     "Ideally, they'll be valuable for someone other than me, but let's not get ahead of ourselves.",
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://www.tomizechsterson.com/',
+  siteUrl: 'https://www.tomizechsterson.com',
   siteRepo: '',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
@@ -18,6 +18,8 @@ const siteMetadata = {
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com',
+  pluralsight: 'https://app.pluralsight.com/profile/tomaseychaner',
+  rumble: 'https://rumble.com/user/tomizechsterson',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the

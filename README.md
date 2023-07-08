@@ -130,10 +130,9 @@ npx degit https://github.com/timlrx/tailwind-nextjs-starter-blog.git
 3. Modify the content security policy in `next.config.js` if you want to use
    any analytics provider or a commenting solution other than giscus.
 4. Personalize `authors/default.md` (main author)
-5. Modify `projectsData.js`
-6. Modify `headerNavLinks.js` to customize navigation links
-7. Add blog posts
-8. Deploy on Vercel
+5. Modify `headerNavLinks.js` to customize navigation links
+6. Add blog posts
+7. Deploy on Vercel
 
 ## Installation
 
@@ -165,15 +164,13 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 `data/authors/default.md` - default author information (required). Additional authors can be added as files in `data/authors`.
 
-`data/projectsData.js` - data used to generate styled card on the projects page.
-
 `data/headerNavLinks.js` - navigation links.
 
 `data/logo.svg` - replace with your own logo.
 
 `data/blog` - replace with your own blog posts.
 
-`public/static` - store assets such as images and favicons.
+`public/static` - store assets such as images and favicons. Project card heroes should be 16x9
 
 `tailwind.config.js` and `css/tailwind.css` - contain the tailwind stylesheet which can be modified to change the overall look and feel of the site.
 
