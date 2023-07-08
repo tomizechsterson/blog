@@ -26,7 +26,7 @@ export async function getStaticProps({ params }) {
     const sortedProjectsByLastMod = allProjectsFrontmatter.sort((a, b) =>
       dateSortDesc(a.lastMod, b.lastMod)
     )
-    const rssContents = generateProjectsRss(sortedProjectsByLastMod, 'project_feed.xml')
+    const rssContents = generateProjectsRss(sortedProjectsByLastMod, 'projects.xml')
     fs.writeFileSync('./public/projects.xml', rssContents)
   }
 
