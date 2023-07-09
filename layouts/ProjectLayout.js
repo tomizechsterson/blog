@@ -17,13 +17,15 @@ export default function ProjectLayout({ children, frontMatter, projects }) {
         <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
           <div className="flex flex-col items-center pt-8">
             <div className="flex space-x-7 pt-6">
-              <Link
-                href={initialDemo}
-                aria-label={`Link to ${name} initial demo`}
-                className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-              >
-                Initial Demo
-              </Link>
+              {initialDemo && (
+                <Link
+                  href={initialDemo}
+                  aria-label={`Link to ${name} initial demo`}
+                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                >
+                  Initial Demo
+                </Link>
+              )}
               {currentDemo && (
                 <Link
                   href={currentDemo}
