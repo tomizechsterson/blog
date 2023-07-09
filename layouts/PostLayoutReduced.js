@@ -31,7 +31,7 @@ export default function PostLayoutReduced({ frontMatter, next, prev, children })
               </div>
             </div>
           </header>
-          <div className="pt-2 text-center text-xs text-gray-400 dark:border-gray-700 sm:text-sm xl:hidden">
+          <div className="pt-2 text-center text-xs text-gray-400 sm:text-sm sm:text-gray-500 xl:hidden">
             est. {readingTime.text}
           </div>
           <div
