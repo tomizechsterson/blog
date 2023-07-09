@@ -3,7 +3,6 @@ import Github from './github.svg'
 import Linkedin from './linkedin.svg'
 import Pluralsight from './pluralsight.svg'
 import Rumble from './rumble.svg'
-import RSS from './rss.svg'
 
 // Icons taken from: https://simpleicons.org/
 
@@ -12,8 +11,7 @@ const components = {
   github: Github,
   linkedin: Linkedin,
   pluralsight: Pluralsight,
-  rumble: Rumble,
-  rss: RSS
+  rumble: Rumble
 }
 
 const SocialIcon = ({ kind, href, size = 8 }) => {
@@ -21,10 +19,6 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
     return null
 
   const SocialSvg = components[kind]
-
-  if (kind === 'rss') {
-    href = 'feed:' + href
-  }
 
   return (
     <a
