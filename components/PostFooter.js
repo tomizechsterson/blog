@@ -1,9 +1,12 @@
 import Tag from '@/components/Tag'
 import Link from '@/components/Link'
 
-export default function PostFooter({ tags, next, prev }) {
+export default function PostFooter({ tags, next, prev, readingTime }) {
   return (
     <footer>
+      <div className="hidden pt-4 text-sm text-gray-500 dark:border-gray-700 xl:flex">
+        approx. {readingTime}
+      </div>
       <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
         {tags && (
           <div className="py-4 xl:py-8">

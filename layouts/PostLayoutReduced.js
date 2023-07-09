@@ -7,7 +7,7 @@ import siteMetadata from '@/data/siteMetadata'
 const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayoutReduced({ frontMatter, next, prev, children }) {
-  const { slug, date, title, tags } = frontMatter
+  const { slug, date, title, tags, readingTime } = frontMatter
 
   return (
     <SectionContainer>
@@ -35,10 +35,13 @@ export default function PostLayoutReduced({ frontMatter, next, prev, children })
             className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
+            <div className="pt-2 text-center text-xs text-gray-400 dark:border-gray-700 sm:text-sm xl:hidden">
+              est. {readingTime.text}
+            </div>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
             </div>
-            <PostFooter tags={tags} next={next} prev={prev} />
+            <PostFooter tags={tags} next={next} prev={prev} readingTime={readingTime.text} />
           </div>
         </div>
       </article>
