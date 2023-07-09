@@ -53,6 +53,12 @@ images:
 
 Keep in mind that this blog is specifically designed to be working with Godot projects, so assumptions have been made around that. Shouldn't be too hard to customize for other purposes, though.
 
+### New siteMetadata
+
+`projectsPageDescription: used similarly to siteMetadata.description, except on the Projects page`
+
+This is also used in the RSS feed as a more accurate description of the projects' channel.
+
 ## Notes
 
 ### Project Card Hero Images

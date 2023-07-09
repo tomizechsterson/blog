@@ -23,7 +23,7 @@ export default function Projects({ sortedFrontMatters }) {
             Projects
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Things I'm currently working on, or believe are neat to share.
+            {siteMetadata.projectsPageDescription}
           </p>
         </div>
         <div className="container py-12">
