@@ -22,6 +22,10 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
 
   const SocialSvg = components[kind]
 
+  if (kind === 'rss') {
+    href = 'feed:' + href
+  }
+
   return (
     <a
       className="text-sm text-gray-500 transition hover:text-gray-600"

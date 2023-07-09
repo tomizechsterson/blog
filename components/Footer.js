@@ -13,8 +13,8 @@ export default function Footer() {
           <SocialIcon kind="pluralsight" href={siteMetadata.pluralsight} size="6" />
           <SocialIcon kind="rumble" href={siteMetadata.rumble} size="6" />
           {/*7/8/23: Remove the below for now, and see if that's enough. If so, remove all RSS-related stuff that was added*/}
-          {/*<SocialIcon kind="rss" href="/feed.xml" size="6" />*/}
-          {/*<SocialIcon kind="rss" href="/projects.xml" size="6" />*/}
+          <SocialIcon kind="rss" href="/feed.xml" size="6" />
+          <SocialIcon kind="rss" href="/projects.xml" size="6" />
         </div>
         <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <div>{siteMetadata.author}</div>
