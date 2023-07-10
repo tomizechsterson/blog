@@ -1,6 +1,6 @@
 describe('Home Page', () => {
   it('should navigate to the home page', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
 
     cy.get('h1').contains('Latest Things')
     cy.get('a').contains('Blog')
