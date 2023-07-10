@@ -6,15 +6,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: Run Cypress
+        uses: actions/checkout@v3
+      - name: Run Cypress E2E Tests
         uses: cypress-io/github-action@v5
+        with:
+          start: npm run serve
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
           CYPRESS_RETRIES: 1
-      - uses: actions/upload-artifact@v2
+      - name: Upload artifacts on failure
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           retention-days: 1
-          path: |
-            cypress/videos
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore
