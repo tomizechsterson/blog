@@ -11,6 +11,7 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           start: npm run serve
+          wait-on: 'http://localhost:3000'
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
           CYPRESS_RETRIES: 1
