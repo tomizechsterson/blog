@@ -1,5 +1,5 @@
 describe('Home Page', () => {
-  it('should navigate to the home page', () => {
+  it('should have header, top nav, and footer', () => {
     cy.visit('/')
 
     cy.get('h1').contains('Latest Things')
