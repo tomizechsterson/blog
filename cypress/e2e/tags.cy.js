@@ -1,5 +1,5 @@
 describe('Tags', () => {
-  it('passes', () => {
+  it('navigates to the first tag', () => {
     cy.visit('/tags')
 
     cy.get('h1').contains('Tags')
