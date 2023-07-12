@@ -30,10 +30,10 @@ describe('Blog', () => {
       .contains('Previous Article')
       .parent()
       .within(() => {
-        cy.get('a[href^="/blog"]').as('articleLink').click()
+        cy.get('a[href^="/blog"]').as('articleLink2').click()
       })
 
-    cy.get('@articleLink').then((link) => {
+    cy.get('@articleLink2').then((link) => {
       cy.location('pathname').should('eq', link.attr('href'))
       cy.get('h1').should('have.text', link.text())
     })
@@ -42,10 +42,10 @@ describe('Blog', () => {
       .contains('Next Article')
       .parent()
       .within(() => {
-        cy.get('a[href^="/blog"]').as('articleLink').click()
+        cy.get('a[href^="/blog"]').as('articleLink3').click()
       })
 
-    cy.get('@articleLink').then((link) => {
+    cy.get('@articleLink3').then((link) => {
       cy.location('pathname').should('eq', link.attr('href'))
       cy.get('h1').should('have.text', link.text())
     })
