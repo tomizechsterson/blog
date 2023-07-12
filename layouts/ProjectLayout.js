@@ -40,23 +40,25 @@ export default function ProjectLayout({ children, frontMatter, projects }) {
               images.map((img) => {
                 return <Image src={img} key={img} alt="screenshot" width="356" height="200" />
               })}
-            Other Projects:
-            <ul>
-              {projects.map((project) => {
-                if (project.slug === frontMatter.slug) return
-                const { name, slug } = project
-                return (
-                  <li key={slug} className="py-1">
-                    <Link
-                      href={`/projects/${slug}`}
-                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                    >
-                      {name}
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
+            <div data-cy="other-projects">
+              Other Projects:
+              <ul>
+                {projects.map((project) => {
+                  if (project.slug === frontMatter.slug) return
+                  const { name, slug } = project
+                  return (
+                    <li key={slug} className="py-1">
+                      <Link
+                        href={`/projects/${slug}`}
+                        className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                      >
+                        {name}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
           </div>
           <div className="prose max-w-none pb-8 pt-8 dark:prose-dark xl:col-span-2">{children}</div>
         </div>

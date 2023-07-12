@@ -16,11 +16,13 @@ describe('Home Page', () => {
 
     cy.get('footer').within(() => {
       cy.get('a[href*="mailto:"]').should('have.length', 1)
-      cy.get('a[href="https://github.com/tomizechsterson"]').should('have.length', 1)
-      cy.get('a[href="https://www.linkedin.com"]').should('have.length', 1)
-      cy.get('a[href="https://app.pluralsight.com/profile/tomaseychaner"]').should('have.length', 1)
-      cy.get('a[href="https://rumble.com/user/tomizechsterson"]').should('have.length', 1)
-      cy.get('a').contains("Tomas's Site").should('have.length', 1)
+      cy.get(`a[href="${siteMetadata.github}"]`).should('have.length', 1)
+      cy.get(`a[href="${siteMetadata.linkedin}"]`).should('have.length', 1)
+      cy.get(`a[href="${siteMetadata.pluralsight}"]`).should('have.length', 1)
+      cy.get(`a[href="${siteMetadata.rumble}"]`).should('have.length', 1)
+      cy.get('a').contains(siteMetadata.title).should('have.length', 1)
+      cy.get('div').should('contain.text', `© ${new Date().getFullYear()}`)
+      cy.get('div').should('contain.text', siteMetadata.author)
     })
   })
 
@@ -39,7 +41,7 @@ describe('Home Page', () => {
       cy.get('h1').should('have.text', link.text())
     })
 
-    cy.get('a[aria-label="A Site That Has Things"]').click()
+    cy.get(`a[aria-label="${siteMetadata.headerTitle}"]`).click()
 
     cy.location('pathname').should('eq', '/')
   })
