@@ -15,14 +15,14 @@ describe('Home Page', () => {
     })
 
     cy.get('footer').within(() => {
-      cy.get('a[href*="mailto:"]').should('have.length', 1)
+      cy.get(`a[href*="mailto:${siteMetadata.email}"]`).should('have.length', 1)
       cy.get(`a[href="${siteMetadata.github}"]`).should('have.length', 1)
       cy.get(`a[href="${siteMetadata.linkedin}"]`).should('have.length', 1)
       cy.get(`a[href="${siteMetadata.pluralsight}"]`).should('have.length', 1)
       cy.get(`a[href="${siteMetadata.rumble}"]`).should('have.length', 1)
-      cy.get('a').contains(siteMetadata.title).should('have.length', 1)
-      cy.get('div').should('contain.text', `© ${new Date().getFullYear()}`)
       cy.get('div').should('contain.text', siteMetadata.author)
+      cy.get('div').should('contain.text', `© ${new Date().getFullYear()}`)
+      cy.get('a').contains(siteMetadata.title).should('have.length', 1)
     })
   })
 
@@ -41,8 +41,7 @@ describe('Home Page', () => {
       cy.get('h1').should('have.text', link.text())
     })
 
-    cy.get(`a[aria-label="${siteMetadata.headerTitle}"]`).click()
-
+    cy.get('[data-cy="header-link"]').click()
     cy.location('pathname').should('eq', '/')
   })
 })

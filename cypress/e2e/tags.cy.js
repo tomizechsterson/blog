@@ -7,6 +7,7 @@ describe('Tags', () => {
 
     cy.get('@tagLink').then((link) => {
       cy.location('pathname').should('eq', link.attr('href'))
+      cy.get('h1').contains(link.text(), { matchCase: false })
     })
 
     cy.get('article')
