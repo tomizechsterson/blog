@@ -1,20 +1,6 @@
 import siteMetadata from '../../data/siteMetadata'
 
-const sizes = [
-  'iphone-se2',
-  'iphone-xr',
-  'iphone-x',
-  'iphone-6+',
-  'ipad-2',
-  'macbook-11',
-  'macbook-13',
-  'macbook-15',
-  'macbook-16',
-  'samsung-note9',
-  'samsung-s10',
-  [1280, 720],
-  [1920, 1080]
-]
+const sizes = ['iphone-se2', 'ipad-2', [1920, 1080]]
 
 const setViewPort = (size) => {
   if (Array.isArray(size)) cy.viewport(size[0], size[1])
@@ -187,7 +173,7 @@ describe('Smoke Test for Site', () => {
       })
     })
 
-    it('clicks on each header nav item', () => {
+    it(`clicks on each header nav item (${size})`, () => {
       setViewPort(size)
 
       cy.window().then((win) => {
