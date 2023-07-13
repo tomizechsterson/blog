@@ -60,10 +60,6 @@ describe('Header Nav', () => {
           cy.location('pathname').should('eq', '/about')
         }
       })
-
-      cy.visit('/')
-      // TODO: Also consider combining all tests into one 'smoke test' (will make above easier),
-      // or do we want to only consider different screen sizes when the hamburger menu is needed..?
     })
   })
 })
