@@ -24,6 +24,7 @@ const MobileNav = () => {
         className="ml-1 mr-1 h-8 w-8 rounded py-1"
         aria-label="Toggle Menu"
         onClick={onToggleNav}
+        data-cy="hamburger-menu"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +65,7 @@ const MobileNav = () => {
             </svg>
           </button>
         </div>
-        <nav className="fixed mt-8 h-full">
+        <nav className="fixed mt-8 h-full" data-cy="mobile-nav">
           {headerNavLinks.map((link) => (
             <div key={link.title} className="px-12 py-4">
               <Link

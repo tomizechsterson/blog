@@ -14,8 +14,8 @@ export default function Projects({ sortedFrontMatters }) {
   return (
     <>
       <ProjectsSEO
-        title={`Projects - ${siteMetadata.author}`}
-        description={`projects - ${siteMetadata.author}`}
+        title={`Projects - ${siteMetadata.title}`}
+        description={`projects - ${siteMetadata.title}`}
       />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">

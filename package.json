@@ -6,11 +6,12 @@
     "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
     "dev": "next dev",
     "build": "next build && node ./scripts/generate-sitemap",
-    "serve": "next start",
+    "serve": "next build && next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky install",
-    "compose": "node ./scripts/compose.js"
+    "compose": "node ./scripts/compose.js",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@fontsource/inter": "4.5.2",
@@ -50,6 +51,7 @@
     "@next/bundle-analyzer": "12.1.4",
     "@svgr/webpack": "^6.1.2",
     "cross-env": "^7.0.3",
+    "cypress": "^12.17.0",
     "dedent": "^0.7.0",
     "eslint": "^7.29.0",
     "eslint-config-next": "^13.4.9",

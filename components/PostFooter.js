@@ -13,7 +13,7 @@ export default function PostFooter({ tags, next, prev, readingTime }) {
             <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
               Tags
             </h2>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap" data-cy="tag-list">
               {tags.map((tag) => (
                 <Tag key={tag} text={tag} />
               ))}
@@ -28,7 +28,9 @@ export default function PostFooter({ tags, next, prev, readingTime }) {
                   Previous Article
                 </h2>
                 <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                  <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
+                  <Link href={`/blog/${prev.slug}`} data-cy="previous-article-link">
+                    {prev.title}
+                  </Link>
                 </div>
               </div>
             )}
@@ -38,7 +40,9 @@ export default function PostFooter({ tags, next, prev, readingTime }) {
                   Next Article
                 </h2>
                 <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                  <Link href={`/blog/${next.slug}`}>{next.title}</Link>
+                  <Link href={`/blog/${next.slug}`} data-cy="next-article-link">
+                    {next.title}
+                  </Link>
                 </div>
               </div>
             )}
