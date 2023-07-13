@@ -25,34 +25,45 @@ describe('Header Nav', () => {
       else cy.viewport(size)
 
       // cy.log('size: ', size)
-      cy.window().then((win) => cy.log(win.innerWidth + ' x ' + win.innerHeight))
+      cy.window().then((win) => {
+        cy.visit('/')
+
+        if (win.innerWidth < 640) {
+          cy.get('[data-cy="hamburger-menu"]').click()
+          cy.get('[data-cy="mobile-nav"]').within(() => {
+            cy.get('a').contains('Blog').click()
+          })
+          cy.location('pathname').should('eq', '/blog')
+          cy.get('[data-cy="hamburger-menu"]').click()
+          cy.get('[data-cy="mobile-nav"]').within(() => {
+            cy.get('a').contains('Tags').click()
+          })
+          cy.location('pathname').should('eq', '/tags')
+          cy.get('[data-cy="hamburger-menu"]').click()
+          cy.get('[data-cy="mobile-nav"]').within(() => {
+            cy.get('a').contains('Projects').click()
+          })
+          cy.location('pathname').should('eq', '/projects')
+          cy.get('[data-cy="hamburger-menu"]').click()
+          cy.get('[data-cy="mobile-nav"]').within(() => {
+            cy.get('a').contains('About').click()
+          })
+          cy.location('pathname').should('eq', '/about')
+        } else {
+          cy.get('a').contains('Blog').click()
+          cy.location('pathname').should('eq', '/blog')
+          cy.get('a').contains('Tags').click()
+          cy.location('pathname').should('eq', '/tags')
+          cy.get('a').contains('Projects').click()
+          cy.location('pathname').should('eq', '/projects')
+          cy.get('a').contains('About').click()
+          cy.location('pathname').should('eq', '/about')
+        }
+      })
 
       cy.visit('/')
-      // TODO: FIGURE OUT HOW TO DETECT VISIBILITY/SCREEN SIZE AND CLICK HAMBURGER MENU ACCORDINGLY
-      // WIDTH <640 IS WHEN HAMBURGER MENU APPEARS
       // TODO: Also consider combining all tests into one 'smoke test' (will make above easier),
       // or do we want to only consider different screen sizes when the hamburger menu is needed..?
-      // cy.get('a').contains('Blog').click()
-      // cy.location('pathname').should('eq', '/blog')
-      // cy.get('a').contains('Tags').click()
-      // cy.location('pathname').should('eq', '/tags')
-      // cy.get('a').contains('Projects').click()
-      // cy.location('pathname').should('eq', '/projects')
-      // cy.get('a').contains('About').click()
-      // cy.location('pathname').should('eq', '/about')
     })
-  })
-
-  it('should click on each header nav item', () => {
-    cy.visit('/')
-
-    cy.get('a').contains('Blog').click()
-    cy.location('pathname').should('eq', '/blog')
-    cy.get('a').contains('Tags').click()
-    cy.location('pathname').should('eq', '/tags')
-    cy.get('a').contains('Projects').click()
-    cy.location('pathname').should('eq', '/projects')
-    cy.get('a').contains('About').click()
-    cy.location('pathname').should('eq', '/about')
   })
 })
