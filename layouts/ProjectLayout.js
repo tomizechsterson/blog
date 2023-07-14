@@ -3,7 +3,7 @@ import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 
 export default function ProjectLayout({ children, frontMatter, projects }) {
-  const { name, initialDemo, currentDemo, images } = frontMatter
+  const { name, initialDemo, currentDemo, images, notes } = frontMatter
 
   return (
     <>
@@ -40,6 +40,13 @@ export default function ProjectLayout({ children, frontMatter, projects }) {
               images.map((img) => {
                 return <Image src={img} key={img} alt="screenshot" width="356" height="200" />
               })}
+            <ul className="list-disc pb-5">
+              Notes:
+              {notes &&
+                notes.map((note) => {
+                  return <li key={note}>{note}</li>
+                })}
+            </ul>
             <div data-cy="other-projects">
               Other Projects:
               <ul>
