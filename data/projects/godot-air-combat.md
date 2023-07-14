@@ -11,6 +11,7 @@ images:
     '/static/images/screenshots/air-combat/title-screen.png',
     '/static/images/screenshots/air-combat/gameplay.png'
   ]
+notes: ['Keyboard required']
 ---
 
 This is the Air Combat [Godot tutorial][1] page. Feel free to click the links above the screenshots if you'd like to

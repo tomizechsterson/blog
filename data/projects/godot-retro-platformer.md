@@ -7,6 +7,7 @@ date: '2023-07-04T11:51:58Z'
 lastMod: '2023-07-04T11:51:58Z'
 initialDemo: '/static/games/retro-platformer-initial/RetroPlatformer.html'
 images: ['/static/images/screenshots/retro-platformer/gameplay.png']
+notes: ['Keyboard required']
 ---
 
 This is the Retro Platformer [Godot tutorial][1] page. The link(s) above the screenshot will take you to the demo(s) if

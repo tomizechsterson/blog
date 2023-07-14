@@ -77,7 +77,7 @@ describe('Smoke Test for Site', () => {
       cy.visit('/blog')
 
       cy.get('h1').should('have.text', 'All Posts')
-      cy.get('article').should('have.length.gte', 5)
+      cy.get('article').should('have.length.at.least', 5)
       cy.get('[data-cy="list-search"]')
         .type('retro platformer')
         .should('have.value', 'retro platformer')
@@ -121,7 +121,7 @@ describe('Smoke Test for Site', () => {
       cy.visit('/projects')
 
       cy.get('h1').should('have.text', 'Projects')
-      cy.get('[data-cy="project-card"]').should('have.length.gte', 3)
+      cy.get('[data-cy="project-card"]').should('have.length.at.least', 3)
       cy.get('[data-cy="project-card"]')
         .first()
         .within(() => {
@@ -136,7 +136,7 @@ describe('Smoke Test for Site', () => {
       })
 
       cy.get('[data-cy="other-projects"]').within(() => {
-        cy.get('li').should('have.length.gte', 2)
+        cy.get('li').should('have.length.at.least', 2)
         cy.get('a').first().as('projectLink').click()
       })
 
@@ -146,6 +146,11 @@ describe('Smoke Test for Site', () => {
       })
 
       cy.get('a').contains('Initial Demo')
+      cy.get('ul')
+        .contains('Notes:')
+        .within(() => {
+          cy.get('li').should('have.length.at.least', 1)
+        })
     })
 
     it(`navigates to the first tag and the first post within (${size})`, () => {

@@ -12,6 +12,7 @@ images:
     '/static/images/screenshots/space-asteroids/gameplay.png',
     '/static/images/screenshots/space-asteroids/game-over.png'
   ]
+notes: ['Keyboard required']
 ---
 
 This is the Space Asteroids [Godot tutorial][1] project page. The links above the screenshots will take you to the
