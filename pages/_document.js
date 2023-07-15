@@ -25,6 +25,7 @@ class MyDocument extends Document {
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
         </Head>
         <body className="bg-white text-black antialiased dark:bg-gray-900 dark:text-white">
+          PAGES FOLDER _document.js
           <Main />
           <NextScript />
         </body>

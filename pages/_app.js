@@ -24,6 +24,7 @@ export default function App({ Component, pageProps }) {
       {isDevelopment && isSocket && <ClientReload />}
       <Analytics />
       <LayoutWrapper>
+        PAGES FOLDER _app.js
         <Component {...pageProps} />
       </LayoutWrapper>
     </ThemeProvider>
