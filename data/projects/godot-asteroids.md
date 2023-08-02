@@ -23,6 +23,9 @@ This tutorial builds a top-down shooter game using an Asteroids-like theme while
 good workflow when creating new features. There's some extra assets that I'd like to make use of, so I'm going to try
 to do that over time.
 
+Update 8/1/2023: I've discovered console errors on both initial and current versions which I believe can cause the
+engine to freeze. It's been added to the fairly large list of things to look into with this game.
+
 ### Release Notes
 
 ##### 07-01-2023
