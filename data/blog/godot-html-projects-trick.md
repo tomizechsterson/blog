@@ -1,9 +1,10 @@
 ---
-title: Godot HTML5 Exports Can Share Engine Assemblies
+title: Godot v3.5.x HTML5 Exports Can Share Engine Assemblies
 date: '2023-08-02T19:41:07Z'
 tags:
   [
     'godot',
+    '3.5.x',
     'html5',
     'export',
     'til',
