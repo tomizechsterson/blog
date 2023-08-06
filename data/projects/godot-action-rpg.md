@@ -23,8 +23,6 @@ least of which would be a menu system or something.
 - Press 'w','a','s','d' or the arrow keys for movement
 - Press 'z' or 'k' to roll
 - Press 'x' or 'j' to attack
-
-There's currently no built-in way to quit the game, so you'll need to use the back button in your browser to navigate
-back.
+- Press 'Esc' to quit
 
 [1]: https://www.youtube.com/playlist?list=PL9FzW-m48fn2SlrW0KoLT4n5egNdX-W9a
