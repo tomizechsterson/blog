@@ -2,7 +2,7 @@
 name: Action RPG
 summary: A Godot walkthrough that creates a basic action RPG
 cardImg: '/static/images/project-cards/godot_logo_action_rpg.png'
-cardSortOrder: 4
+cardSortOrder: 2
 date: '2023-08-06T15:54:08Z'
 lastMod: '2023-08-06T15:54:08Z'
 initialDemo: '/static/games/action-rpg-initial/ActionRPG.html'
