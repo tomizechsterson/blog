@@ -26,7 +26,15 @@ to do that over time.
 Update 8/1/2023: I've discovered console errors on both initial and current versions which I believe can cause the
 engine to freeze. It's been added to the fairly large list of things to look into with this game.
 
+- Arrow keys move your ship left and right
+- Space bar fires a laser
+- Esc exits the game
+
 ### Release Notes
+
+##### 08-08-2023
+
+- Added ability to exit the game during gameplay and on the game over screen
 
 ##### 07-01-2023
 
