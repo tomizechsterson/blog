@@ -35,6 +35,7 @@ engine to freeze. It's been added to the fairly large list of things to look int
 ##### 08-09-2023
 
 - All asteroids now clear on game over
+- Fix repeated console errors, and probably the occasional engine freeze
 
 ##### 08-08-2023
 
