@@ -28,9 +28,14 @@ engine to freeze. It's been added to the fairly large list of things to look int
 
 - Arrow keys move your ship left and right
 - Space bar fires a laser
-- Esc exits the game
+- Esc exits the game (Current version only)
 
 ### Release Notes
+
+##### 08-09-2023
+
+- All asteroids now clear on game over
+- Fix repeated console errors, and probably the occasional engine freeze
 
 ##### 08-08-2023
 
