@@ -19,7 +19,17 @@ This is a turn-based RPG created from this [Godot tutorial][1]. The link above t
 if you'd like to check it out.
 
 The game has about 5 - 7 minutes of gameplay, but showcases pretty much every major system that a game like this would
-have, even if they are super basic.
+have, even if they are super basic. This includes:
+
+- Dialog
+- Simple quest system
+- Inventory
+- Screen transitions
+- Interacting with objects
+- Random, side view battle system
+- Basic spell effects
+- Sound and music
+- Saving/loading
 
 NOTE: Saving/loading doesn't currently appear to work in the browser
 
