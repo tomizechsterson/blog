@@ -2,7 +2,7 @@
 name: Topdown Shooter
 summary: A Godot tutorial that creates a simple topdown shooter
 cardImg: '/static/images/project-cards/godot_logo_topdown_shooter.png'
-cardSortOrder: 4
+cardSortOrder: 5
 date: '2023-08-01T21:45:00Z'
 lastMod: '2023-08-01T21:45:00Z'
 initialDemo: '/static/games/topdown-shooter-initial/TopdownShooter.html'
