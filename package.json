@@ -51,7 +51,7 @@
     "@next/bundle-analyzer": "12.1.4",
     "@svgr/webpack": "^6.1.2",
     "cross-env": "^7.0.3",
-    "cypress": "^13.11.0",
+    "cypress": "^13.15.1",
     "dedent": "^0.7.0",
     "eslint": "^7.29.0",
     "eslint-config-next": "^14.2.4",
