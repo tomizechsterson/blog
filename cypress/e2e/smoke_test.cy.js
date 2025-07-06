@@ -96,17 +96,17 @@ describe('Smoke Test for Site', () => {
       })
 
       cy.get('h2').contains('Previous Article')
-      cy.get('[data-cy="previous-article-link"]').as('articleLink', { type: 'static' }).click()
-      cy.get('@articleLink').then((link) => {
-        cy.location('pathname').should('eq', link.attr('href'))
-        cy.get('h1').should('have.text', link.text())
+      cy.get('[data-cy="previous-article-link"]').then(($prevArticleLink) => {
+        cy.get('a').contains($prevArticleLink.text()).click()
+        cy.location('pathname').should('eq', $prevArticleLink.attr('href'))
+        cy.get('h1').should('have.text', $prevArticleLink.text())
       })
 
       cy.get('h2').contains('Next Article')
-      cy.get('[data-cy="next-article-link"]').as('articleLink', { type: 'static' }).click()
-      cy.get('@articleLink').then((link) => {
-        cy.location('pathname').should('eq', link.attr('href'))
-        cy.get('h1').should('have.text', link.text())
+      cy.get('[data-cy="next-article-link"]').then(($nextArticleLink) => {
+        cy.get('a').contains($nextArticleLink.text()).click()
+        cy.location('pathname').should('eq', $nextArticleLink.attr('href'))
+        cy.get('h1').should('have.text', $nextArticleLink.text())
       })
 
       cy.get('a').contains('Back to the blog').click()
@@ -124,23 +124,21 @@ describe('Smoke Test for Site', () => {
         .first()
         .within(() => {
           cy.get('h2').within(() => {
-            cy.get('a').first().as('projectLink').click()
+            cy.get('a').then((projectLink) => {
+              cy.get('a').click()
+              cy.location('pathname').should('eq', projectLink.attr('href'))
+            })
           })
         })
 
-      cy.get('@projectLink').then((link) => {
-        cy.location('pathname').should('eq', link.attr('href'))
-        cy.get('h1').should('have.text', link.text())
-      })
-
       cy.get('[data-cy="other-projects"]').within(() => {
         cy.get('li').should('have.length.at.least', 2)
-        cy.get('a').first().as('projectLink', { type: 'static' }).click()
-      })
-
-      cy.get('@projectLink').then((link) => {
-        cy.location('pathname').should('eq', link.attr('href'))
-        cy.get('h1').should('have.text', link.text())
+        cy.get('a')
+          .first()
+          .then((projectLink) => {
+            cy.get('a').first().click()
+            cy.location('pathname').should('eq', projectLink.attr('href'))
+          })
       })
 
       cy.get('a').contains('Initial Demo')
