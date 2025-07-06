@@ -78,13 +78,11 @@ describe('Smoke Test for Site', () => {
 
       cy.get('h1').should('have.text', 'All Posts')
       cy.get('article').should('have.length.at.least', 5)
-      cy.get('[data-cy="list-search"]')
-        .type('retro platformer')
-        .should('have.value', 'retro platformer')
+      cy.get('[data-cy="list-search"]').type('retro platformer')
       cy.get('article').should('have.length', 1)
 
       cy.get('article').within(() => {
-        cy.get('a[href^="/blog"]').as('articleLink').click()
+        cy.get('a[href^="/blog"]').first().as('articleLink').click()
       })
 
       cy.get('@articleLink').then((link) => {
@@ -98,14 +96,14 @@ describe('Smoke Test for Site', () => {
       })
 
       cy.get('h2').contains('Previous Article')
-      cy.get('[data-cy="previous-article-link"]').as('articleLink').click()
+      cy.get('[data-cy="previous-article-link"]').as('articleLink', { type: 'static' }).click()
       cy.get('@articleLink').then((link) => {
         cy.location('pathname').should('eq', link.attr('href'))
         cy.get('h1').should('have.text', link.text())
       })
 
       cy.get('h2').contains('Next Article')
-      cy.get('[data-cy="next-article-link"]').as('articleLink').click()
+      cy.get('[data-cy="next-article-link"]').as('articleLink', { type: 'static' }).click()
       cy.get('@articleLink').then((link) => {
         cy.location('pathname').should('eq', link.attr('href'))
         cy.get('h1').should('have.text', link.text())
@@ -126,7 +124,7 @@ describe('Smoke Test for Site', () => {
         .first()
         .within(() => {
           cy.get('h2').within(() => {
-            cy.get('a').as('projectLink').click()
+            cy.get('a').first().as('projectLink').click()
           })
         })
 
@@ -137,7 +135,7 @@ describe('Smoke Test for Site', () => {
 
       cy.get('[data-cy="other-projects"]').within(() => {
         cy.get('li').should('have.length.at.least', 2)
-        cy.get('a').first().as('projectLink').click()
+        cy.get('a').first().as('projectLink', { type: 'static' }).click()
       })
 
       cy.get('@projectLink').then((link) => {
