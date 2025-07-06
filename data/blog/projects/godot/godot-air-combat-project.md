@@ -8,8 +8,9 @@ canonicalUrl:
 ---
 
 I've completed another Godot tutorial that I intend to turn into an experimenting project. This was a shorter one, so
-the gameplay is pretty basic, and there were some glaring issues left at the end. I believe trying to address these over time will make for great
-progress toward learning this engine. This particular walkthrough builds a basic side-scrolling schmup.
+the gameplay is pretty basic, and there were some glaring issues left at the end. I believe trying to address these
+over time will make for great progress toward learning this engine. This particular walkthrough builds a basic
+side-scrolling schmup.
 
 You can find more details on this project through the Projects section above, or simply click
 [here](/projects/godot-air-combat).

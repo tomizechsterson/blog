@@ -15,13 +15,15 @@ images:
 notes: ['Keyboard required']
 ---
 
-This is the page for the Topdown Shooter [Godot tutorial][1]. The link above the screenshots will take you to the demo if you'd like to check it out.
+This is the page for the Topdown Shooter [Godot tutorial][1]. The link above the screenshots will take you to the demo
+if you'd like to check it out.
 
-This was another good tutorial that made use of tile-sets and tile-maps, but it also taught some decent A\* pathfinding using Godot. It's not perfect,
-but it works decently well. There's also a working pause function in this one, which is nice.
+This was another good tutorial that made use of tile-sets and tile-maps, but it also taught some decent A\* pathfinding
+using Godot. It's not perfect, but it works decently well. There's also a working pause function in this one, which is nice.
 
-There's a bug with reloading the SMG, which is on the list of things to work on with this. There's also a bunch of console errors when
-playing in the browser, and the particles had to be removed to make it work there... Not a lot else jumped to mind by the end, though.
+There's a bug with reloading the SMG, which is on the list of things to work on with this. There's also a bunch of
+console errors when playing in the browser, and the particles had to be removed to make it work there... Not a lot else
+jumped to mind by the end, though.
 
 - Press '1' to switch to the Pistol (this is what's selected at the start)
 - Press '2' to switch to the SMG

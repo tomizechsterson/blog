@@ -15,8 +15,10 @@ images:
 notes: ['Mobile friendly', 'Mouse friendly']
 ---
 
-This is the page for the Circle Jump [Godot tutorial][1]. The link(s) above the screenshots will take you to the demo(s) if you'd like to try it out. Also, this one's mobile friendly!
+This is the page for the Circle Jump [Godot tutorial][1]. The link(s) above the screenshots will take you to the
+demo(s) if you'd like to try it out. Also, this one's mobile friendly!
 
-This was mostly an exercise in mobile game development with the Godot engine, but it also included a little bit of shaders and file I/O (to enable the saving of settings and the high score).
+This was mostly an exercise in mobile game development with the Godot engine, but it also included a little bit of
+shaders and file I/O (to enable the saving of settings and the high score).
 
 [1]: https://www.youtube.com/watch?v=wU6otgwaNQg&list=PLsk-HSGFjnaHH6JyhJI2w8JI76v1F6B-X&index=1
