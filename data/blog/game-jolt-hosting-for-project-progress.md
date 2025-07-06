@@ -15,3 +15,7 @@ begin with from this point on.
 Current Demo links will point to Game Jolt, and the initial state will stay here. I figure it'd be good to keep a
 record of where these projects start, but let a site that's designed for dev-logging handle documenting ongoing
 development, and hosting the executables.
+
+**Update 7/6/25:** Any project that's not graphically-based will be hosted here, since it doesn't make much sense to
+deploy something like that on GameJolt. For example, a React project that's been on my mind will be documented here if
+I can bring myself to actually work on it.
