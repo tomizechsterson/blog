@@ -21,7 +21,7 @@ Then I had another thought:
 > How hard could it possibly be to recreate that experience in React?!
 
 And since it's always a good idea to plow forward with hare-brained ideas like this, I've decided to go right ahead and
-entertain this madness.
+entertain this one. I mean, I know a little React, so what could possibly go wrong?
 
 What I'd like to do:
 
