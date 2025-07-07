@@ -11,7 +11,8 @@
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky install",
     "compose": "node ./scripts/compose.js",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "cypress:all": "npx cypress run"
   },
   "dependencies": {
     "@fontsource/inter": "4.5.2",
