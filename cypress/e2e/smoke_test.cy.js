@@ -50,7 +50,7 @@ describe('Smoke Test for Site', () => {
 
       cy.get('@link').then((link) => {
         cy.location('pathname').should('eq', link.attr('href'))
-        cy.get('h1').should('have.text', link.text())
+        cy.get('h1').first().should('have.text', link.text())
       })
 
       cy.get('[data-cy="header-link"]').click()
