@@ -2,7 +2,7 @@
 name: Turn-Based RPG
 summary: A Godot project walkthrough that implements a pretty feature-rich turn-based RPG
 cardImg: '/static/images/project-cards/godot_logo_turn_based_rpg.png'
-cardSortOrder: 1
+cardSortOrder: 7
 date: '2023-09-18T19:40:00Z'
 lastMod: '2023-09-18T19:40:00Z'
 initialDemo: '/static/games/turn-based-rpg-initial/TurnBasedCourse.html'

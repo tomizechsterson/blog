@@ -2,7 +2,7 @@
 name: Circle Jump
 summary: A Godot tutorial that creates a simple one-tap game
 cardImg: '/static/images/project-cards/godot-logo-circle-jump.png'
-cardSortOrder: 3
+cardSortOrder: 5
 date: '2023-07-18T19:39:08Z'
 lastMod: '2023-07-18T19:39:08Z'
 initialDemo: '/static/games/circle-jump-initial/Circle-jump.html'

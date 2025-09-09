@@ -5,7 +5,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 
 export async function getStaticProps() {
   const projectFrontMatters = await getAllFilesFrontMatter('projects')
-  const sortedFrontMatters = projectFrontMatters.sort((a, b) => a.cardSortOrder - b.cardSortOrder)
+  const sortedFrontMatters = projectFrontMatters.sort((a, b) => b.cardSortOrder - a.cardSortOrder)
 
   return { props: { sortedFrontMatters } }
 }

@@ -2,7 +2,7 @@
 name: Space Asteroids
 summary: A Godot project walkthrough that gives you a good start to an Asteroids-like arcade shooter
 cardImg: '/static/images/project-cards/godot_logo_asteroids.png'
-cardSortOrder: 2
+cardSortOrder: 6
 date: '2023-06-03T12:30:00Z'
 lastMod: '2023-07-01T19:30:00Z'
 initialDemo: '/static/games/asteroids-initial/space-asteroid.html'
