@@ -33,8 +33,6 @@ const siteMetadata = {
     posthogAnalyticsId: '' // posthog.init e.g. phc_5yXvArzvRdqtZIsHkEm3Fkkhm3d0bEYUXCaFISzqPSQ
   },
   newsletter: {
-    // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
-    // Please add your .env file and modify it according to your selection
     provider: ''
   },
   comment: {
