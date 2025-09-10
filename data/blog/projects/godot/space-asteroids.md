@@ -1,5 +1,5 @@
 ---
-title: Godot Asteroids Project
+title: Space Asteroids Project
 date: '2023-06-03T12:30:00Z'
 tags: ['godot', 'tutorial', 'asteroids']
 summary: Introducing my take on the Godot Space Asteroids tutorial
