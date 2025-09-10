@@ -38,7 +38,16 @@ export default function ProjectLayout({ children, frontMatter, projects }) {
             </div>
             {images &&
               images.map((img) => {
-                return <Image src={img} key={img} alt="screenshot" width="356" height="200" />
+                return (
+                  <Image
+                    src={img}
+                    key={img}
+                    alt="screenshot"
+                    width="356"
+                    height="200"
+                    className="pb-2"
+                  />
+                )
               })}
             <ul className="list-disc pb-5">
               Notes:
