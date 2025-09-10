@@ -8,9 +8,8 @@ lastMod: '2025-09-08T20:30:00Z'
 currentDemo: 'https://gamejolt.com/games/tomato-man/1011995'
 images:
   [
-    '/static/images/screenshots/turn-based-rpg/town.png',
-    '/static/images/screenshots/turn-based-rpg/dialog.png',
-    '/static/images/screenshots/turn-based-rpg/battle.png'
+    '/static/images/screenshots/tomato-man/screenshot1.png',
+    '/static/images/screenshots/tomato-man/screenshot2.png'
   ]
 notes: ['Keyboard required']
 ---
