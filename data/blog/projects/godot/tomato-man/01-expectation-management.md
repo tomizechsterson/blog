@@ -35,4 +35,15 @@ For example, if I'm rage-googling a problem, there probably won't be any article
 
 As was stated before, this project is supposed to be the size of a tutorial, so there won't be a ton of content, and this won't be driven by an actual design doc/spec. I'll also be resisting any temptations to watch or read tutorials, but official documentation is ok. Although, I will make exceptions for _specific_ topics, such as state machines or AI behavior in Godot. Things like that.
 
-The hope is that I'll be able to implement all the major features of a standard platformer, even if they're at a very small scale. There should be 2 enemies, which will imply the combat necessary to dispatch them or be defeated by them. Level progression should be a thing, but I don't intend for there to be a ton of levels (maybe 2 - 3). The game shouldn't be more than 15 - 20 minutes long. There will be pickups in the levels (coins, health pickups, and 1-ups), and a couple of hazards, such as spikes and spring boards. Also, naturally, (and since thankfully, someone actually made music specifically for this art pack) some music and sound effects. There's also a parallax background provided, so that'd be nice to throw in there. Finally, the main character will be able to double-jump, slide, pick up and throw boxes, climb ladders, punch the enemies, and all the other usual platformer things.
+The hope is that I'll be able to implement all the major features of a standard platformer, even if they're at a very small scale. There should be 2 enemies, which will imply the combat necessary to dispatch them or be defeated by them. Level progression should be a thing, but I don't intend for there to be a ton of levels (maybe 2 - 3). The game shouldn't be more than 15 - 20 minutes long. There will be pickups in the levels (coins, health pickups, and 1-ups), and a couple of hazards, such as spikes and springboards. Also, naturally, (and since thankfully, someone actually made music specifically for this art pack) some music and sound effects. There's also a parallax background provided, so that'd be nice to throw in there. Finally, the main character will be able to double-jump, slide, pick up and throw boxes, climb ladders, punch the enemies, and all the other usual platformer things.
+
+Regarding the blog itself, the intent is to write about higher-level concepts, such as decisions, learnings, and maybe
+even some why's. This is an attempt to further grow my ability to think through things and explain them. With any luck,
+I'll be able to remember to keep notes while building out this project, because my memory tends to wipe itself pretty
+clean whenever I move from one task to the next. I'm sure these topics will be in flux for a while as I figure out what makes the most sense to write about, and as I figure out how to do this in the first place.
+
+---
+
+That should about do it for expectations. Tune in next time, when we will cover the current state of the project. I
+didn't want to assume that this one would hold up against the other project, but it turns out it has, and there's
+already been some progress. We should probably go over that for those of you who, for some reason, are following along.
