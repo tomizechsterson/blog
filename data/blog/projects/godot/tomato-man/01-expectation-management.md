@@ -19,7 +19,8 @@ Ok, now for some expectations for those of you who have decided to continue endu
   - a couple of hazards
   - music, sounds, a parallax background
 
-As always, you can check out the [project page](/projects/godot-tomato-man) if you want to give the current version a try.
+As always, you can check out the [project page](/projects/godot-tomato-man) if you want to give the current version a
+try.
 
 ---
 
@@ -27,20 +28,40 @@ So, I think it'll be good to know what to expect regarding the process and the c
 
 ### Process
 
-As with the other project (and as I've already demonstrated), this one is subject to my historically scarce (and at best, scattered) motivation. So, if these articles suddenly stop, that probably means I've moved on, burnt out, or rage quit. I'll try to post an article for closure, but I'm not promising anything. Also, the frequency of articles will likely vary, since there may or may not be anything to write about at any given time. Hopefully I'll be clear about what I'm currently doing.
+As with the other project (and as I've already demonstrated), this one is subject to my historically scarce (and at
+best, scattered) motivation. So, if these articles suddenly stop, that probably means I've moved on, burnt out, or
+rage quit. I'll try to post an article for closure, but I'm not promising anything. Also, the frequency of articles
+will likely vary, since there may or may not be anything to write about at any given time. Hopefully I'll be clear
+about what I'm currently doing.
 
-For example, if I'm rage-googling a problem, there probably won't be any articles while I deal with solving said problem. However, if I manage to succeed, there should be an article about it (I mean, if it's bad enough that it's taking me days to solve, surly there's enough there for an article...). As another example, if things are going swimmingly, there could be some material there, or maybe what I'm doing is mundane enough to not be worth writing about. Just don't assume there will be much rhyme and/or reason to this process, or article consistency.
+For example, if I'm rage-googling a problem, there probably won't be any articles while I deal with solving said
+problem. However, if I manage to succeed, there should be an article about it (I mean, if it's bad enough that it's
+taking me days to solve, surly there's enough there for an article...). As another example, if things are going
+swimmingly, there could be some material there, or maybe what I'm doing is mundane enough to not be worth writing
+about. Just don't assume there will be much rhyme and/or reason to this process, or article consistency.
 
 ### Content
 
-As was stated before, this project is supposed to be the size of a tutorial, so there won't be a ton of content, and this won't be driven by an actual design doc/spec. I'll also be resisting any temptations to watch or read tutorials, but official documentation is ok. Although, I will make exceptions for _specific_ topics, such as state machines or AI behavior in Godot. Things like that.
+As was stated before, this project is supposed to be the size of a tutorial, so there won't be a ton of content,
+and this won't be driven by an actual design doc/spec. I'll also be resisting any temptations to watch or read
+tutorials, but official documentation is ok. Although, I will make exceptions for _specific_ topics, such as state
+machines or AI behavior in Godot. Things like that.
 
-The hope is that I'll be able to implement all the major features of a standard platformer, even if they're at a very small scale. There should be 2 enemies, which will imply the combat necessary to dispatch them or be defeated by them. Level progression should be a thing, but I don't intend for there to be a ton of levels (maybe 2 - 3). The game shouldn't be more than 15 - 20 minutes long. There will be pickups in the levels (coins, health pickups, and 1-ups), and a couple of hazards, such as spikes and springboards. Also, naturally, (and since thankfully, someone actually made music specifically for this art pack) some music and sound effects. There's also a parallax background provided, so that'd be nice to throw in there. Finally, the main character will be able to double-jump, slide, pick up and throw boxes, climb ladders, punch the enemies, and all the other usual platformer things.
+The hope is that I'll be able to implement all the major features of a standard platformer, even if they're at a very
+small scale. There should be 2 enemies, which will imply the combat necessary to dispatch them or be defeated by them.
+Level progression should be a thing, but I don't intend for there to be a ton of levels (maybe 2 - 3). The game
+shouldn't be more than 15 - 20 minutes long. There will be pickups in the levels (coins, health pickups, and 1-ups),
+and a couple of hazards, such as spikes and springboards. Also, naturally, (and since thankfully, someone actually
+made music specifically for this art pack) some music and sound effects. There's also a parallax background provided,
+so that'd be nice to throw in there. Finally, the main character will be able to double-jump, slide, pick up and throw
+boxes, climb ladders, punch the enemies, and all the other usual platformer things.
 
 Regarding the blog itself, the intent is to write about higher-level concepts, such as decisions, learnings, and maybe
 even some why's. This is an attempt to further grow my ability to think through things and explain them. With any luck,
 I'll be able to remember to keep notes while building out this project, because my memory tends to wipe itself pretty
-clean whenever I move from one task to the next. I'm sure these topics will be in flux for a while as I figure out what makes the most sense to write about, and as I figure out how to do this in the first place.
+clean whenever I move from one task to the next. I'm sure the topics themselves will be in flux for a while as I figure
+out what makes the most sense to write about, and as I figure out how to do this in the first place. This will probably
+also cause the way I write these articles to vary for a while.
 
 ---
 
