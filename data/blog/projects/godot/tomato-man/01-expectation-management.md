@@ -57,14 +57,13 @@ so that'd be nice to throw in there. Finally, the main character will be able to
 boxes, climb ladders, punch the enemies, and all the other usual platformer things.
 
 Regarding the blog itself, the intent is to write about higher-level concepts, such as decisions, learnings, and maybe
-even some why's. This is an attempt to further grow my ability to think through things and explain them. With any luck,
-I'll be able to remember to keep notes while building out this project, because my memory tends to wipe itself pretty
-clean whenever I move from one task to the next. I'm sure the topics themselves will be in flux for a while as I figure
-out what makes the most sense to write about, and as I figure out how to do this in the first place. This will probably
-also cause the way I write these articles to vary for a while.
+even some why's. This is an attempt to further grow my ability to think through things and explain them. I'm sure the
+topics themselves will be in flux for a while as I figure out what makes the most sense to write about, and as I
+figure out how to do this in the first place. Even the _way_ I write these articles will probably vary for a while.
+So, all that said, this blog will be inconsistent for a time.
 
 ---
 
-That should about do it for expectations. Tune in next time, when we will cover the current state of the project. I
+That should about do it for expectations. Tune in next time, when we will cover the current state of the project (I
 didn't want to assume that this one would hold up against the other project, but it turns out it has, and there's
-already been some progress. We should probably go over that for those of you who, for some reason, are following along.
+already been some progress). We should probably go over that for those of you who, for some reason, are following along.
