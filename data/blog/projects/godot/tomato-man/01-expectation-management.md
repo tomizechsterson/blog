@@ -1,6 +1,6 @@
 ---
 title: Expectations Management
-date: '2025-09-10T22:00:00Z'
+date: '2025-09-14T14:04:00Z'
 tags: ['godot', 'project', 'tomato-man']
 summary: Hey, we made it to two!
 layout: PostLayoutReduced
