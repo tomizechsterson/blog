@@ -17,8 +17,8 @@ back around to it. Especially since that project has more significant topics to 
 
 ---
 
-Anyway, so here's what we're going to do: Build a Godot project without watching or reading a single tutorial that is a simple,
-side-scrolling platformer. This should be a worthwhile effort for the following reasons:
+Anyway, so here's what we're going to do: Build a Godot project without watching or reading a single tutorial that is a
+simple, side-scrolling platformer. This should be a worthwhile effort for the following reasons:
 
 - More practice with Godot which will force me to solve problems in this engine
   - with any luck, this will result in the ability to build larger projects over time
@@ -39,8 +39,8 @@ This won't be:
 - A conversation with anyone subjecting themselves to my madness
 - Something I intend to make money with (specifically with this project)
 
-Now, before we get started, there will be an article or two with more details about the project itself and its current
-state. I'll also be sure to set expectations as best I can from the get-go, to try and minimize surprises (why are you
-subjecting yourself to this nonsense??).
+Now, before we get started, there will be an article or two with more details about the project itself. I'll also be
+sure to set expectations as best I can from the get-go, to try and minimize surprises (why are you subjecting yourself
+to this nonsense??).
 
 That should be good for now; see you next time!
