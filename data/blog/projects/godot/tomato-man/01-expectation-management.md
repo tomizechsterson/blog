@@ -62,6 +62,12 @@ topics themselves will be in flux for a while as I figure out what makes the mos
 figure out how to do this in the first place. Even the _way_ I write these articles will probably vary for a while.
 So, all that said, this blog will be inconsistent for a time.
 
+Another note about the blog: I'm going to go ahead and bite the bullet now, and do the upgrade to the latest version
+of NextJS, with the use of the /app folder instead of the /pages folder. This will probably take a little while,
+since I have to rebuild the projects section, and the newest NextJS went Typescript on me, so that will slow me
+down (as Typescript is designed to do). There's also a handful of other changes that need to be made to get it back
+to what it is now.
+
 ---
 
 That should about do it for expectations. Tune in next time, when we will cover the current state of the project (I
