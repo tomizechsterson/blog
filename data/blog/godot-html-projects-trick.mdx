@@ -13,7 +13,7 @@ tags:
     'engine',
     'assembly',
     'binary',
-    'wasm'
+    'wasm',
   ]
 summary: Today I discovered a neat little trick involving Godot HTML 5 exports and their generated files
 layout: PostLayoutReduced
@@ -27,7 +27,7 @@ played using a simple browser. It makes showing your game off to friends and fam
 go to this URL and check out my work!". Then, you update the project, copy/paste the new exported files, redeploy your
 site, and start the process all over again. What happens when you have more than one project, though...?
 
-<TOCInline toc={props.toc} asDisclosure exclude={"Introduction"} toHeading={2} />
+<TOCInline toc={props.toc} asDisclosure exclude={'Introduction'} toHeading={2} />
 
 ## Why?
 
@@ -194,8 +194,8 @@ difficult for myself. 😅
     goes haywire. Then I won't be so happy; and you'll probably see a follow-up post to this one explaining how foolish I was
     for falling into this trap and letting my guard down. I really like these footnotes.
 
-[^4]:
-    All that to say, at the end of the day the general rule of thumb is: Modify auto-generated files at your own risk.
+[^4]: All that to say, at the end of the day the general rule of thumb is: Modify auto-generated files at your own risk.
+
 [^5]:
     For the curious, you'll want to start way down somewhere around line 18,595 with the `startGame: function (override)`
     line. Notice the line `const exe = this.config.executable` just a couple lines down. This is where I had my "Aha!"

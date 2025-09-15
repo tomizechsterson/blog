@@ -40,7 +40,10 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
           </button>
         )}
         {prevPage && (
-          <Link href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`} rel="prev">
+          <Link
+            href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
+            rel="prev"
+          >
             Previous
           </Link>
         )}
@@ -62,7 +65,12 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
   )
 }
 
-export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }: ListLayoutProps) {
+export default function ListLayout({
+  posts,
+  title,
+  initialDisplayPosts = [],
+  pagination,
+}: ListLayoutProps) {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((post) => {
     const searchContent = post.title + post.summary + post.tags?.join(' ')
@@ -70,7 +78,8 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
   })
 
   // If initialDisplayPosts exist, display it if no searchValue is specified
-  const displayPosts = initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+  const displayPosts =
+    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
 
   return (
     <>
@@ -127,9 +136,13 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                           {title}
                         </Link>
                       </h3>
-                      <div className="flex flex-wrap">{tags?.map((tag) => <Tag key={tag} text={tag} />)}</div>
+                      <div className="flex flex-wrap">
+                        {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                      </div>
                     </div>
-                    <div className="prose max-w-none text-gray-500 dark:text-gray-400">{summary}</div>
+                    <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+                      {summary}
+                    </div>
                   </div>
                 </article>
               </li>

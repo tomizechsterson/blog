@@ -79,7 +79,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                               href={author.github}
                               className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                             >
-                              {author.github.replace('https://twitter.com/', '@').replace('https://x.com/', '@')}
+                              {author.github
+                                .replace('https://twitter.com/', '@')
+                                .replace('https://x.com/', '@')}
                             </Link>
                           )}
                         </dd>
@@ -95,7 +97,10 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 <Link href={editUrl(filePath)}>View on GitHub</Link>
               </div>
               {siteMetadata.comments && (
-                <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300" id="comment">
+                <div
+                  className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
+                  id="comment"
+                >
                   <Comments slug={slug} />
                 </div>
               )}
@@ -104,7 +109,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="divide-gray-200 text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2 xl:divide-y dark:divide-gray-700">
                 {tags && (
                   <div className="py-4 xl:py-8">
-                    <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Tags</h2>
+                    <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                      Tags
+                    </h2>
                     <div className="flex flex-wrap" data-cy="tag-list">
                       {tags.map((tag) => (
                         <Tag key={tag} text={tag} />

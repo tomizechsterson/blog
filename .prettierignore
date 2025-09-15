@@ -1,0 +1,21 @@
+# Dependencies and package manager
+node_modules/
+.yarn/
+
+# Build outputs
+.next/
+out/
+dist/
+.build/
+
+# Public static vendor assets (don’t reformat vendored or generated files)
+public/static/
+public/**/*.js
+public/**/*.html
+
+# Logs and coverage
+coverage/
+*.log
+
+# Misc
+.yarn/releases/

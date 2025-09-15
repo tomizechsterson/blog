@@ -65,7 +65,7 @@ This is used similarly to siteMetadata.description, except on the Projects page
 
 These images should be 16 x 9.
 
-###  Table of Contents
+### Table of Contents
 
 ```jsx:sampleWithImportantProps.tsx
 <TOCInline toc={props.toc} asDisclosure exclude="Overview" toHeading={2} />
