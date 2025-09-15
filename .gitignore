@@ -50,3 +50,4 @@ yarn-error.log*
 app/tag-data.json
 
 /cypress/screenshots/
+/tsconfig.tsbuildinfo
