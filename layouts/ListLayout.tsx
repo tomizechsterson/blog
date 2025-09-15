@@ -40,10 +40,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
           </button>
         )}
         {prevPage && (
-          <Link
-            href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
-            rel="prev"
-          >
+          <Link href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`} rel="prev">
             Previous
           </Link>
         )}
@@ -65,12 +62,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
   )
 }
 
-export default function ListLayout({
-  posts,
-  title,
-  initialDisplayPosts = [],
-  pagination,
-}: ListLayoutProps) {
+export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }: ListLayoutProps) {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((post) => {
     const searchContent = post.title + post.summary + post.tags?.join(' ')
@@ -78,8 +70,7 @@ export default function ListLayout({
   })
 
   // If initialDisplayPosts exist, display it if no searchValue is specified
-  const displayPosts =
-    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+  const displayPosts = initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
 
   return (
     <>
@@ -97,6 +88,7 @@ export default function ListLayout({
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search articles"
                 className="focus:border-primary-500 focus:ring-primary-500 block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
+                data-cy="list-search"
               />
             </label>
             <svg
@@ -135,13 +127,9 @@ export default function ListLayout({
                           {title}
                         </Link>
                       </h3>
-                      <div className="flex flex-wrap">
-                        {tags?.map((tag) => <Tag key={tag} text={tag} />)}
-                      </div>
+                      <div className="flex flex-wrap">{tags?.map((tag) => <Tag key={tag} text={tag} />)}</div>
                     </div>
-                    <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                      {summary}
-                    </div>
+                    <div className="prose max-w-none text-gray-500 dark:text-gray-400">{summary}</div>
                   </div>
                 </article>
               </li>

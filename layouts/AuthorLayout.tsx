@@ -28,10 +28,13 @@ export default function AuthorLayout({ children, content }: Props) {
                 width={192}
                 height={192}
                 className="h-48 w-48 rounded-full"
+                data-cy="author-image"
               />
             )}
             <h3 className="pt-4 pb-2 text-2xl leading-8 font-bold tracking-tight">{name}</h3>
-            <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
+            <div className="text-gray-500 dark:text-gray-400" data-cy="occupation">
+              {occupation}
+            </div>
             <div className="text-gray-500 dark:text-gray-400">{company}</div>
             <div className="flex space-x-3 pt-6">
               <SocialIcon kind="mail" href={`mailto:${email}`} />
@@ -41,9 +44,7 @@ export default function AuthorLayout({ children, content }: Props) {
               {/*<SocialIcon kind="rumble" href={rumble} />*/}
             </div>
           </div>
-          <div className="prose dark:prose-invert max-w-none pt-8 pb-8 xl:col-span-2">
-            {children}
-          </div>
+          <div className="prose dark:prose-invert max-w-none pt-8 pb-8 xl:col-span-2">{children}</div>
         </div>
       </div>
     </>

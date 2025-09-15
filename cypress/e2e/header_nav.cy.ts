@@ -10,7 +10,8 @@ const sizes: ViewportPreset[] = [
   'macbook-16',
   'samsung-note9',
   'samsung-s10',
-]
+] // See if we can figure out how to get custom screen sizes back (1280x720 and 1920x1080)
+// Looks like it'll be necessary to loop over two arrays, the above and a new one with the custom sizes
 
 describe('Header Nav', () => {
   sizes.forEach((size) => {
