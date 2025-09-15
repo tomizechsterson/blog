@@ -1,8 +1,9 @@
 import { allProjects } from 'contentlayer/generated'
 import Card from '@/components/Card'
 import { genPageMetadata } from 'app/seo'
+import { Metadata } from 'next'
 
-export const metadata = genPageMetadata({ title: 'Projects' })
+export const metadata: Metadata = genPageMetadata({ title: 'Projects' })
 
 export default async function Projects() {
   const sortedProjects = allProjects.sort((a, b) => b.cardSortOrder - a.cardSortOrder)
