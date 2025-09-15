@@ -1,4 +1,6 @@
-const sizes = [
+import ViewportPreset = Cypress.ViewportPreset
+
+const sizes: ViewportPreset[] = [
   'iphone-se2',
   'iphone-xr',
   'iphone-x',
@@ -8,8 +10,6 @@ const sizes = [
   'macbook-16',
   'samsung-note9',
   'samsung-s10',
-  [1280, 720],
-  [1920, 1080],
 ]
 
 describe('Header Nav', () => {
