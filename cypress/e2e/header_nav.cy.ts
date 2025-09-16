@@ -1,15 +1,14 @@
 import ViewportPreset = Cypress.ViewportPreset
 
 const sizes: ViewportPreset[] = [
-  'iphone-se2',
-  'iphone-xr',
-  'iphone-x',
-  'iphone-8',
-  'ipad-mini',
-  'macbook-15',
-  'macbook-16',
-  'samsung-note9',
-  'samsung-s10',
+  'iphone-se2', // 750x1334
+  'iphone-xr', // 828x1792
+  'iphone-x', // 1125x2436
+  'ipad-mini', // 2048x1536
+  'macbook-15', // 2880x1864
+  'macbook-16', // 3072x1920
+  'samsung-note9', // 1440x2960
+  'samsung-s10', // 1440x3040
 ] // See if we can figure out how to get custom screen sizes back (1280x720 and 1920x1080)
 // Looks like it'll be necessary to loop over two arrays, the above and a new one with the custom sizes
 
