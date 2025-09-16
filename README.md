@@ -4,7 +4,7 @@
 
 This is a [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) blogging template. Probably the most feature-rich Next.js markdown blogging template out there. It comes out of the box configured with the latest technologies to make technical writing a breeze. Easily configurable and customizable. Perfect as a replacement to existing Jekyll and Hugo individual blogs.
 
-This blog was started from the template found [here](https://github.com/timlrx/tailwind-nextjs-starter-blog#readme). For in-depth information on how to get started head on over there. Since this particular blog was started, some deviations have happened. They will be documented below.
+This blog was started from the template found [here](https://vercel.com/templates/blog/tailwind-css-starter-blog). For in-depth information on how to get started head on over there. Since this particular blog was started, some deviations have happened. They will be documented below.
 
 ## New Bits
 
@@ -55,12 +55,52 @@ Keep in mind that this blog is specifically designed to be working with Godot pr
 
 ### New siteMetadata
 
-`projectsPageDescription: used similarly to siteMetadata.description, except on the Projects page`
+`projectsPageDescription: A description of the projects page`
 
-This is also used in the RSS feed as a more accurate description of the projects' channel.
+This is used similarly to siteMetadata.description, except on the Projects page
 
 ## Notes
 
 ### Project Card Hero Images
 
 These images should be 16 x 9.
+
+### Table of Contents
+
+```jsx:sampleWithImportantProps.tsx
+<TOCInline toc={props.toc} asDisclosure exclude="Overview" toHeading={2} />
+```
+
+Prop Information:
+
+- `asDisclosure` - Makes the table of contents collapsible
+- `fromHeading` - Combine with `toHeading` to limit the heading levels that are included
+- `exclude` - Use to exclude certain headings from the table of contents (string or array of strings)
+- `indentDepth` - Configures indenting of the headers
+
+### PostBanner Layout
+
+This layout makes use of the `images` front-matter, and pulls the first image from the array to use as the banner at the top.
+
+### Images in Articles
+
+You can use the following implementation to display a 'gallery' of images in an .mdx article (mainly, the point is that you can include HTML-looking code with MDX v2):
+
+```js
+<div className="-mx-2 flex flex-wrap overflow-hidden xl:-mx-2">
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![Maple](/static/images/canada/maple.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![Lake](/static/images/canada/lake.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![Mountains](/static/images/canada/mountains.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![Toronto](/static/images/canada/toronto.jpg)
+  </div>
+</div>
+```
+
+Images must be stored in the `public` folder, e.g. `public/static/images/someCoolPic.jpeg`.

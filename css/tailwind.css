@@ -1,6 +1,121 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin "@tailwindcss/forms";
+@plugin '@tailwindcss/typography';
+@source '../node_modules/pliny';
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Core theme configuration */
+@theme {
+  /* Font families */
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Colors */
+  /* Copied from https://tailwindcss.com/docs/theme#default-theme-variable-reference */
+  --color-primary-50: oklch(0.9793 0.0207 166.11);
+  --color-primary-100: oklch(0.9505 0.0507 163.05);
+  --color-primary-200: oklch(0.9049 0.0895 164.15);
+  --color-primary-300: oklch(0.8452 0.1299 164.98);
+  --color-primary-400: oklch(0.7729 0.1535 163.22);
+  --color-primary-500: oklch(0.6959 0.1491 162.48);
+  --color-primary-600: oklch(0.596 0.1274 163.23);
+  --color-primary-700: oklch(0.5081 0.1049 165.61);
+  --color-primary-800: oklch(0.4318 0.0865 166.91);
+  --color-primary-900: oklch(0.378 0.073 168.94);
+  --color-primary-950: oklch(0.2621 0.0487 172.55);
+
+  --color-gray-50: oklch(0.9851 0 0);
+  --color-gray-100: oklch(0.9702 0 0);
+  --color-gray-200: oklch(0.9219 0 0);
+  --color-gray-300: oklch(0.8699 0 0);
+  --color-gray-400: oklch(0.7155 0 0);
+  --color-gray-500: oklch(0.5555 0 0);
+  --color-gray-600: oklch(0.4386 0 0);
+  --color-gray-700: oklch(0.3715 0 0);
+  --color-gray-800: oklch(0.2686 0 0);
+  --color-gray-900: oklch(0.2046 0 0);
+  --color-gray-950: oklch(0.1448 0 0);
+
+  /* Line heights */
+  --line-height-11: 2.75rem;
+  --line-height-12: 3rem;
+  --line-height-13: 3.25rem;
+  --line-height-14: 3.5rem;
+
+  /* Z-index values */
+  --z-60: 60;
+  --z-70: 70;
+  --z-80: 80;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  a,
+  button {
+    outline-color: var(--color-primary-500);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid;
+    border-radius: var(--radius-sm);
+    outline-color: var(--color-primary-500);
+  }
+}
+
+@layer utilities {
+  .prose {
+    & a {
+      color: var(--color-primary-500);
+      &:hover {
+        color: var(--color-primary-600);
+      }
+      & code {
+        color: var(--color-primary-400);
+      }
+    }
+    & :where(h1, h2) {
+      font-weight: 700;
+      letter-spacing: var(--tracking-tight);
+    }
+    & h3 {
+      font-weight: 600;
+    }
+    & :where(code):not(pre code) {
+      color: var(--color-indigo-500);
+    }
+  }
+
+  .prose-invert {
+    & a {
+      color: var(--color-primary-500);
+      &:hover {
+        color: var(--color-primary-400);
+      }
+      & code {
+        color: var(--color-primary-400);
+      }
+    }
+    & :where(h1, h2, h3, h4, h5, h6) {
+      color: var(--color-gray-100);
+    }
+  }
+}
 
 .task-list-item::before {
   @apply hidden;
@@ -11,15 +126,52 @@
 }
 
 .footnotes {
-  @apply mt-12 border-t border-gray-200 pt-8 text-sm text-gray-500 dark:border-gray-700;
+  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+}
+
+.data-footnote-backref {
+  @apply no-underline;
 }
 
 .csl-entry {
   @apply my-5;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-  transition: background-color 600000s 0s, color 600000s 0s;
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
+}
+
+.katex-display {
+  overflow: auto hidden;
+}
+
+.content-header-link {
+  opacity: 0;
+  margin-left: -24px;
+  padding-right: 4px;
+}
+
+.content-header:hover .content-header-link,
+.content-header-link:hover {
+  opacity: 1;
+}
+
+.linkicon {
+  display: inline-block;
+  vertical-align: middle;
 }
