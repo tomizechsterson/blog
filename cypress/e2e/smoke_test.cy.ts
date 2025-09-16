@@ -14,7 +14,7 @@ describe('Smoke Test for Site', () => {
 
       cy.visit('/')
 
-      cy.get('title').should('have.text', siteMetadata.title)
+      cy.get('[data-cy="site-title"]').should('have.text', siteMetadata.title)
       cy.get('h1').should('have.text', 'Latest Things')
 
       cy.get('header').within(() => {
@@ -78,17 +78,13 @@ describe('Smoke Test for Site', () => {
 
       cy.get('h1').should('have.text', 'All Posts')
       cy.get('article').should('have.length.at.least', 5)
-      cy.get('[data-cy="list-search"]').type('retro platformer')
-      cy.get('article').should('have.length', 1)
+      cy.get('[data-cy="search-button"]').click()
+      cy.get('[role="combobox"]').type('retro platformer')
+      cy.get('div#kbar-listbox').children().should('have.length', 2)
 
-      cy.get('article').within(() => {
-        cy.get('a[href^="/blog"]').first().as('articleLink').click()
-      })
-
-      cy.get('@articleLink').then((link) => {
-        cy.location('pathname').should('eq', link.attr('href'))
-        cy.get('h1').should('have.text', link.text())
-      })
+      cy.get('div#kbar-listbox').children().eq(1).click()
+      cy.location('pathname').should('eq', '/blog/projects/godot/retro-platformer-project')
+      cy.get('h1').should('have.text', 'Godot Retro Platformer Project')
       cy.get('div').should('contain.text', 'min read')
       cy.get('h2').should('contain.text', 'Tags')
       cy.get('[data-cy="tag-list"]').within(() => {
