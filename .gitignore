@@ -49,5 +49,4 @@ yarn-error.log*
 .idea/
 app/tag-data.json
 
-/cypress/screenshots/
 /tsconfig.tsbuildinfo

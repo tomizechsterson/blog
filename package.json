@@ -9,9 +9,7 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts && tsc --noEmit",
-    "prepare": "husky",
-    "cypress": "cypress open",
-    "cypress:all": "npx cypress run"
+    "prepare": "husky"
   },
   "dependencies": {
     "@headlessui/react": "2.2.0",
@@ -22,7 +20,6 @@
     "@vercel/analytics": "^1.5.0",
     "body-scroll-lock": "^4.0.0-beta.0",
     "contentlayer2": "0.5.5",
-    "cross-env": "^7.0.3",
     "esbuild": "0.25.2",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.2",
@@ -58,7 +55,7 @@
     "@types/react": "^19.0.8",
     "@typescript-eslint/eslint-plugin": "^8.12.0",
     "@typescript-eslint/parser": "^8.12.0",
-    "cypress": "^15",
+    "cross-env": "^7.0.3",
     "eslint": "^9.14.0",
     "eslint-config-next": "15.2.4",
     "eslint-config-prettier": "^9.1.0",
