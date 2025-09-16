@@ -1,6 +1,6 @@
 import ViewportPreset = Cypress.ViewportPreset
 
-const sizes: ViewportPreset[] = [
+const sizes: (ViewportPreset | number[])[] = [
   'iphone-se2', // 750x1334
   'iphone-xr', // 828x1792
   'iphone-x', // 1125x2436
@@ -9,8 +9,9 @@ const sizes: ViewportPreset[] = [
   'macbook-16', // 3072x1920
   'samsung-note9', // 1440x2960
   'samsung-s10', // 1440x3040
-] // See if we can figure out how to get custom screen sizes back (1280x720 and 1920x1080)
-// Looks like it'll be necessary to loop over two arrays, the above and a new one with the custom sizes
+  [1280, 720],
+  [1920, 1080],
+]
 
 describe('Header Nav', () => {
   sizes.forEach((size) => {
