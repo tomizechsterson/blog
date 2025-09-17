@@ -2,7 +2,7 @@ import { Project, allProjects } from 'contentlayer/generated'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import ProjectLayout from '@/layouts/ProjectLayout'
 import { coreContent } from 'pliny/utils/contentlayer'
-import NotFound from '../../not-found'
+import { notFound } from 'next/navigation'
 
 export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
   const params = await props.params
@@ -17,7 +17,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
           <MDXLayoutRenderer code={project.body.code} />
         </ProjectLayout>
       ) : (
-        <NotFound />
+        notFound()
       )}
     </>
   )
