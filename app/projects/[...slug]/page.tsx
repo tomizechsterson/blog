@@ -4,8 +4,6 @@ import ProjectLayout from '@/layouts/ProjectLayout'
 import { coreContent } from 'pliny/utils/contentlayer'
 import { notFound } from 'next/navigation'
 
-// TODO: Consider adding generateMetadata and/or generateStaticParams to see if those make this do SSR instead of dynamic during the build
-
 export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
   const params = await props.params
   const slug = decodeURI(params.slug.join('/'))
