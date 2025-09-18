@@ -75,18 +75,6 @@ export default function PostLayoutReduced({ content, next, prev, children }: Lay
                 )}
                 {(next || prev) && (
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
-                    {prev && prev.path && (
-                      <div>
-                        <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                          Previous Article
-                        </h2>
-                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${prev.path}`} data-cy="previous-article-link">
-                            {prev.title}
-                          </Link>
-                        </div>
-                      </div>
-                    )}
                     {next && next.path && (
                       <div>
                         <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
@@ -95,6 +83,18 @@ export default function PostLayoutReduced({ content, next, prev, children }: Lay
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/${next.path}`} data-cy="next-article-link">
                             {next.title}
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                    {prev && prev.path && (
+                      <div>
+                        <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                          Previous Article
+                        </h2>
+                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                          <Link href={`/${prev.path}`} data-cy="previous-article-link">
+                            {prev.title}
                           </Link>
                         </div>
                       </div>
