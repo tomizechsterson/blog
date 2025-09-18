@@ -4,6 +4,10 @@ import ProjectLayout from '@/layouts/ProjectLayout'
 import { coreContent } from 'pliny/utils/contentlayer'
 import { notFound } from 'next/navigation'
 
+export const generateStaticParams = async () => {
+  return allProjects.map((p) => ({ slug: p.slug.split('/').map((name) => decodeURI(name)) }))
+}
+
 export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
   const params = await props.params
   const slug = decodeURI(params.slug.join('/'))
