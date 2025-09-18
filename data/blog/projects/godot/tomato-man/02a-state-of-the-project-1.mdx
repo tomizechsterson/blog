@@ -1,0 +1,65 @@
+---
+title: State of the Project - Part 1
+date: '2025-09-16T22:00:00Z'
+tags: ['godot', 'project', 'tomato-man']
+summary: Ok, so where are we, anyway?
+layout: PostLayoutReduced
+canonicalUrl:
+---
+
+So, I guess this is getting kind of serious.
+
+<TOCInline toc={props.toc} asDisclosure toHeading={2} />
+
+First of all, I've had about enough of Cypress on this project, so it's 🔥'd. Here's why: I can test this thing
+manually in probably under a minute, and Cypress takes somewhere in the realm of a couple minutes to run, so it's just
+not worth the flakiness. For anybody viewing my madness on a phone, I apologize in advance if this site doesn't work
+perfectly. I'll try to remember to take a look here and there, and fix any mobile issues, but no promises.
+
+Another thing: Whew, that upgrade to NextJS 15 and the new `app` folder structure sure was something (that's a good 12
+hours of my life I'll never get back)...
+
+## Current Features
+
+Alright, back to the show. As of right now, the game may be playable, but it's features are as basic and humble as
+can be.
+
+#### Basic Maneuverability
+
+- Run
+- Jump, double-jump (because double-jump is life)
+- Wall slide, wall jump
+
+Currently, the movement isn't super fast and jumps aren't super high, but the level is still navigable. I've been
+thinking about bumping those things up and expanding the level, but I'm going to hold off for now. I don't want to get
+hung up on that, especially because it would require re-working the level, and I'm far too lazy to mess around with level
+design.
+
+#### Basic Gameplay
+
+- pickups: coins, 1-ups, health
+- UI that tracks coins, 1-ups, health
+
+We have a touch of gameplay at the moment. You can run around and pick up the stuff in the level, and the UI will
+update accordingly.
+
+## Next Feature
+
+We need to close up the game loop. Currently, all you do is run around and collect all the things, which is nice and
+all, but there needs to be some way to end and restart. It'd also be quite nice to have some way to "score" the user.
+Current theory is to use a timer and record the user's time and coin count once they get to the end of the level.
+
+This requires some kind of way to end the level. Probably just some differently-colored blocks for now that display
+a message and show the option to reset or exit when the user gets to them.
+
+This will allow me to set the version to 0.0.1, since I think that once you have a game loop, that should mean you've
+officially hit alpha, and that's when you start using (at least some form of) semantic versioning.[^1] Specifically,
+once this project is in alpha, I'll start incrementing the third number (0.0.x), and once it's in beta, I'll increment the
+second number and start using the third one for builds (0.x.x). Then, once I consider it to be 'production', we'll get to
+1.0.0, and _then_ I'll start using semantic versioning the way it's actually written (major.minor.patch). Why? Because.
+
+Particularly acute readers may have noticed that the version number already has the term 'alpha' in it. As of right now, it's
+0.0.1-alpha.3, which almost sounds like it's in a sort of "double alpha" state. Or, that it'll move from this alpha state to
+another alpha state when we get to 0.0.1. I'm also ok with this, and don't really care. 🤷‍♂️
+
+[^1]: I'll be using one that I made up, and I'm ok with that.
