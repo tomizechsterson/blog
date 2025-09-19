@@ -5,7 +5,7 @@ import { coreContent } from 'pliny/utils/contentlayer'
 import { notFound } from 'next/navigation'
 
 export const generateStaticParams = async () => {
-  return allProjects.map((p) => ({ slug: p.slug.split('/').map((name) => decodeURI(name)) }))
+  return allProjects.map((p) => ({ slug: p.slug.split('/').map((title) => decodeURI(title)) }))
 }
 
 export default async function Page(props: { params: Promise<{ slug: string[] }> }) {

@@ -80,18 +80,40 @@ async function createTagCount(allBlogs) {
   writeFileSync('./app/tag-data.json', formatted)
 }
 
-function createSearchIndex(allBlogs) {
+function createSearchIndex(allBlogs, allProjects) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
     siteMetadata.search.kbarConfig.searchDocumentsPath
   ) {
+    // TODO try adding icon to projects and see if they display (this could allow distinction between blog articles and project pages)
+    // Possibly a path to an svg in the project page front matter?
+    const sortedPosts = sortPosts(allBlogs)
     writeFileSync(
       `public/${path.basename(siteMetadata.search.kbarConfig.searchDocumentsPath)}`,
-      JSON.stringify(allCoreContent(sortPosts(allBlogs)))
+      JSON.stringify(allCoreContent(sortPosts(allProjects.concat(sortedPosts))))
     )
     console.log('Local search index generated...')
   }
 }
+
+export const Authors = defineDocumentType(() => ({
+  name: 'Authors',
+  filePathPattern: 'authors/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    name: { type: 'string', required: true },
+    avatar: { type: 'string' },
+    occupation: { type: 'string' },
+    company: { type: 'string' },
+    email: { type: 'string' },
+    github: { type: 'string' },
+    linkedin: { type: 'string' },
+    pluralsight: { type: 'string' },
+    rumble: { type: 'string' },
+    layout: { type: 'string' },
+  },
+  computedFields,
+}))
 
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
@@ -128,31 +150,13 @@ export const Blog = defineDocumentType(() => ({
   },
 }))
 
-export const Authors = defineDocumentType(() => ({
-  name: 'Authors',
-  filePathPattern: 'authors/**/*.mdx',
-  contentType: 'mdx',
-  fields: {
-    name: { type: 'string', required: true },
-    avatar: { type: 'string' },
-    occupation: { type: 'string' },
-    company: { type: 'string' },
-    email: { type: 'string' },
-    github: { type: 'string' },
-    linkedin: { type: 'string' },
-    pluralsight: { type: 'string' },
-    rumble: { type: 'string' },
-    layout: { type: 'string' },
-  },
-  computedFields,
-}))
-
 export const Project = defineDocumentType(() => ({
   name: 'Project',
   filePathPattern: 'projects/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    name: { type: 'string', required: true },
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
     summary: { type: 'string' },
     cardImg: { type: 'string' },
     cardSortOrder: { type: 'number', required: true },
@@ -166,7 +170,7 @@ export const Project = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors, Project],
+  documentTypes: [Authors, Blog, Project],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
@@ -197,8 +201,8 @@ export default makeSource({
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs } = await importData()
+    const { allBlogs, allProjects } = await importData()
     await createTagCount(allBlogs)
-    createSearchIndex(allBlogs)
+    createSearchIndex(allBlogs, allProjects)
   },
 })

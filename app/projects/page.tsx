@@ -24,7 +24,7 @@ export default async function Projects() {
             {sortedProjects.map((p) => (
               <Card
                 key={p.slug}
-                title={p.name}
+                title={p.title}
                 description={p.summary}
                 imgSrc={p.cardImg}
                 href={`/projects/${p.slug}`}
