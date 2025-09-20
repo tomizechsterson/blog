@@ -7,10 +7,8 @@ layout: PostLayoutReduced
 canonicalUrl:
 ---
 
-# Learnings so Far
-
 So, this is what I can remember from the current progress of this project. There haven't been a ton of breakthroughs, but
-maybe some words can be said (or typed, as it were) for a couple of things, in descending order by date.
+maybe some words can be said (or typed, as it were) about a couple of things.
 
 <TOCInline toc={props.toc} asDisclosure exclude={'Learnings so Far'} toHeading={2} />
 
@@ -22,7 +20,7 @@ Problem: When wall sliding, if the button to stay on the wall is held, the playe
 ground tile (even if they slide below the wall they're hanging onto). This is bad.
 
 (I would also love to show the problem visually, but I'm not willing to re-break the collision just for that. I'll try to
-be good about getting recordings as I go from here on out, though.)
+be good about getting recordings and whatnot from here on out, though.)
 
 Solution: Raycasts!
 
@@ -38,7 +36,7 @@ This allows us to use code like this in the Wall Slide state to go ahead and fal
 wall presumably):
 
 ```gdscript:wall_slide.gd
-# This is within physics_process() in our state node, among other things
+# within physics_process()
 if (!parent.wall_slide_detector.is_colliding()):
     return fall_state
 ```
@@ -57,10 +55,10 @@ generate the builds for Linux, web, and Windows, zip them up, and then upload th
 So, down the GitHub Actions (or really, CI/CD in general) rabbit hole I went...
 
 Surprisingly, despite how many tries it took, I don't remember this ever reaching a hopeless-like state where I had no idea
-what could possibly be tried next. It was infuriating most of the time, to be clear (I did find that outputting information
-such as `PWD` or a directory's contents is extremely helpful when debugging CI/CD nonsense). Not only that, but thankfully
-there's already a [GitHub Action](https://github.com/marketplace/actions/godot-ci) and container available that were made
-for exporting Godot projects.
+what could possibly be tried next. It was infuriating most of the time, to be clear. However, I did find that outputting
+information such as `PWD` or a directory's contents is extremely helpful when debugging CI/CD nonsense. Not only that, but
+thankfully there's already a [GitHub Action](https://github.com/marketplace/actions/godot-ci) and container available that
+were made for exporting Godot projects.
 
 Here's a modified version of the above action to include some (what I believe to be) optimizations:
 
@@ -120,14 +118,18 @@ Some notes on the above script:
 - The `permissions.contents` value, I believe, allows the build to create the zip files toward the end
 - `on.push.tags` - I'm pretty sure there are other options here. What I wanted was a way to trigger these builds
   consciously, and since tags are a manual decision for now, this seemed the most sensible way. It also ties into the
-  auto-generation of GitHub releases, which include the zipped binaries that are uploaded to GameJolt). I'm pretty sure the
+  auto-generation of GitHub releases, which include the zipped binaries that are uploaded to GameJolt. I'm pretty sure the
   `softprops/action-gh-release@v2` action also reads the tag and generates the release with that (it can even generate the
   release notes, which is quite nice).
 - `jobs.[job-name].container.image` - The version number here should match the version of Godot you're using.
 
+Speaking of Godot versions, as of this writing, Godot 4.5 is out (🎉🎉🎉), so I'll be making updates to this script as soon as
+reasonably possible.
+
 One regret I have is doing all this experimentation right on the master branch, so now I have a huge chunk of commit
 history that's just "try this", "remove that setting", "put that file back". It would have been much better to do all this
-on a branch, and simply configure the repo to initiate a build when a commit goes to that branch. Oh well, lesson learned.
+on a branch, and simply configure the repo to initiate a build when a commit goes to that branch, and then re-configure it
+once it's working the way I like. Oh well, lesson learned.
 
 ## State Machines
 
@@ -136,14 +138,15 @@ Enum Variable strategy before I switched to a Node-based one. This did not take 
 
 As soon as we went beyond the most basic
 states (idle, run, jump, fall), the code in the player object started getting ridiculous. Adding double-jump quickly became
-a hassle, so I rage-quit enums, found an article (or was given a link to one) that showed how it's done in Godot, and just went
-for it.
+a hassle, so I rage-quit enums, found an article (or was given a link to one) that showed how to make a node-based state
+machine in Godot, and went for it.
 
 I've found this to be much more flexible and maintainable, so I'm quite happy with it. I may see if I can get away with
 enums when implementing the enemies, or maybe once the game itself has states, but who knows? I predict these will have much
 fewer states than the player, so maybe it'll work. Hopefully, I'll organize the code better from the beginning with these
-entities. I do remember that the player object wasn't even setup with an enum variable for state while those first four
-were being implemented, so maybe that made it more difficult than it normally would be.
+entities, which will let me give the enum strategy a fair shake. I do remember that the player object wasn't even setup with an
+enum for state while those first four were being implemented, so maybe that made it more difficult than it normally would be.
 
 Either way, that should about sum up the major learnings so far. Now, it's time to actually, finally get back into this
-project, so I can continue learning how to make stuff in Godot, and secondarily, blog with some kind of purpose.
+project, so I can continue learning how to make stuff in Godot, and secondarily, blog with some kind of purpose (hopefully
+with more screenshots and whatnot). See you next time!
