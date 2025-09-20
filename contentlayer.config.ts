@@ -85,8 +85,6 @@ function createSearchIndex(allBlogs, allProjects) {
     siteMetadata?.search?.provider === 'kbar' &&
     siteMetadata.search.kbarConfig.searchDocumentsPath
   ) {
-    // TODO try adding icon to projects and see if they display (this could allow distinction between blog articles and project pages)
-    // Possibly a path to an svg in the project page front matter?
     const sortedPosts = sortPosts(allBlogs)
     writeFileSync(
       `public/${path.basename(siteMetadata.search.kbarConfig.searchDocumentsPath)}`,
