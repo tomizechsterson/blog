@@ -131,6 +131,19 @@ on a branch, and simply configure the repo to initiate a build when a commit goe
 
 ## State Machines
 
-Enum variable vs Nodes
+This one is the farthest back, so these memories might be getting hazy. I do remember wanting to see how far I could take the
+Enum Variable strategy before I switched to a Node-based one. This did not take long.
 
-Variable gets unruly quite quick (4+, as soon as double jump was needed)
+As soon as we went beyond the most basic
+states (idle, run, jump, fall), the code in the player object started getting ridiculous. Adding double-jump quickly became
+a hassle, so I rage-quit enums, found an article (or was given a link to one) that showed how it's done in Godot, and just went
+for it.
+
+I've found this to be much more flexible and maintainable, so I'm quite happy with it. I may see if I can get away with
+enums when implementing the enemies, or maybe once the game itself has states, but who knows? I predict these will have much
+fewer states than the player, so maybe it'll work. Hopefully, I'll organize the code better from the beginning with these
+entities. I do remember that the player object wasn't even setup with an enum variable for state while those first four
+were being implemented, so maybe that made it more difficult than it normally would be.
+
+Either way, that should about sum up the major learnings so far. Now, it's time to actually, finally get back into this
+project, so I can continue learning how to make stuff in Godot, and secondarily, blog with some kind of purpose.
