@@ -33,7 +33,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 const icon = fromHtmlIsomorphic(
   `
   <span class="content-header-link">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 linkicon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" className="w-5 h-5 linkicon">
   <path d="M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 0 .225 5.865.75.75 0 0 0 .977-1.138 2.5 2.5 0 0 1-.142-3.667l3-3Z" />
   <path d="M11.603 7.963a.75.75 0 0 0-.977 1.138 2.5 2.5 0 0 1 .142 3.667l-3 3a2.5 2.5 0 0 1-3.536-3.536l1.225-1.224a.75.75 0 0 0-1.061-1.06l-1.224 1.224a4 4 0 1 0 5.656 5.656l3-3a4 4 0 0 0-.225-5.865Z" />
   </svg>
@@ -80,18 +80,37 @@ async function createTagCount(allBlogs) {
   writeFileSync('./app/tag-data.json', formatted)
 }
 
-function createSearchIndex(allBlogs) {
+function createSearchIndex(allBlogs, allProjects) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
     siteMetadata.search.kbarConfig.searchDocumentsPath
   ) {
     writeFileSync(
       `public/${path.basename(siteMetadata.search.kbarConfig.searchDocumentsPath)}`,
-      JSON.stringify(allCoreContent(sortPosts(allBlogs)))
+      JSON.stringify(allCoreContent(sortPosts(allProjects.concat(sortPosts(allBlogs)))))
     )
     console.log('Local search index generated...')
   }
 }
+
+export const Authors = defineDocumentType(() => ({
+  name: 'Authors',
+  filePathPattern: 'authors/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    name: { type: 'string', required: true },
+    avatar: { type: 'string' },
+    occupation: { type: 'string' },
+    company: { type: 'string' },
+    email: { type: 'string' },
+    github: { type: 'string' },
+    linkedin: { type: 'string' },
+    pluralsight: { type: 'string' },
+    rumble: { type: 'string' },
+    layout: { type: 'string' },
+  },
+  computedFields,
+}))
 
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
@@ -128,31 +147,13 @@ export const Blog = defineDocumentType(() => ({
   },
 }))
 
-export const Authors = defineDocumentType(() => ({
-  name: 'Authors',
-  filePathPattern: 'authors/**/*.mdx',
-  contentType: 'mdx',
-  fields: {
-    name: { type: 'string', required: true },
-    avatar: { type: 'string' },
-    occupation: { type: 'string' },
-    company: { type: 'string' },
-    email: { type: 'string' },
-    github: { type: 'string' },
-    linkedin: { type: 'string' },
-    pluralsight: { type: 'string' },
-    rumble: { type: 'string' },
-    layout: { type: 'string' },
-  },
-  computedFields,
-}))
-
 export const Project = defineDocumentType(() => ({
   name: 'Project',
   filePathPattern: 'projects/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    name: { type: 'string', required: true },
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
     summary: { type: 'string' },
     cardImg: { type: 'string' },
     cardSortOrder: { type: 'number', required: true },
@@ -166,7 +167,7 @@ export const Project = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors, Project],
+  documentTypes: [Authors, Blog, Project],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
@@ -197,8 +198,8 @@ export default makeSource({
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs } = await importData()
+    const { allBlogs, allProjects } = await importData()
     await createTagCount(allBlogs)
-    createSearchIndex(allBlogs)
+    createSearchIndex(allBlogs, allProjects)
   },
 })
