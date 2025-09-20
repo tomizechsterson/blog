@@ -1,0 +1,135 @@
+---
+title: Current Learnings
+date: '2025-09-20T14:21:05Z'
+tags: ['godot', 'project', 'tomato-man']
+summary: What have we learned so far?
+layout: PostLayoutReduced
+canonicalUrl:
+---
+
+## Learnings so Far
+
+So, this is what I can remember from the current progress of this project. There haven't been a ton of breakthroughs, but
+maybe some words can be said (or typed, as it were) for a couple of things, in descending order by date.
+
+<TOCInline toc={props.toc} asDisclosure exclude={'Learnings so Far'} toHeading={2} />
+
+### Raycasts
+
+This is the most recent thing that seems noteworthy to me.
+
+Problem
+: When wall sliding, if the button to stay on the wall is held, the player will continue to wall slide until they hit a
+ground tile (even if they slide below the wall they're hanging onto). This is bad.
+
+(I would also love to show the problem visually, but I'm not willing to re-break the collision just for that. I'll try to
+be good about getting recordings as I go from here on out, though.)
+
+Solution
+: Raycasts!
+
+We can get around the problem by using a raycast to detect if there's a wall to hold onto. Here's what it looks like when
+the program is run with collisions visible:
+
+{screenshot}
+
+The arrow you see is the raycast, and can report whether or not it's colliding with anything.
+
+This allows us to use code like this in the Wall Slide state to go ahead and fall when we're no longer colliding (with a
+wall presumably):
+
+```python
+# wall_slide.gd - our state node
+if (!parent.wall_slide_detector.is_colliding()):
+    return fall_state
+```
+
+{perhaps explain python language selection}
+This gives us a nice way to fall when the player has slid to the bottom of a wall. As a bonus, this also helps us prevent
+the player from clinging onto a wall when jumping past blocks and barely bumping into them. Nice!
+
+### CI, Platforms, and Builds (oh my)
+
+Another thing that I had to fight with was getting CI/CD setup for this. I was noticing how manual and tedious it was to
+generate the builds for Linux, web, and Windows, zip them up, and then upload them to GameJolt. Then I figured "Why not
+have a build process do at least the first two steps so I don't have to think about it, and then I can simply upload the zips?"
+So, down the GitHub Actions (or really, CI/CD in general) rabbit hole I went...
+
+Surprisingly, despite how many tries it took, I don't remember this ever reaching a hopeless-like state where I had no idea
+what could possibly be tried next. It was infuriating most of the time, to be clear (I did find that outputting information
+such as `PWD` or a directory's contents is extremely helpful when debugging CI/CD nonsense). Not only that, but thankfully
+there's already a GitHub Action and container available that were made for exporting Godot projects.
+
+{link}
+
+Here's a modified version of the above action to include some (what I believe to be) optimizations:
+
+```yml
+name: 'Workflow Name'
+permissions:
+  contents: write
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+env:
+  GODOT_VERSION: 4.4.1
+  EXPORT_NAME: tomato-man
+  PROJECT_PATH: .
+# Linux and web steps removed for brevity; they generally mirror each other
+jobs:
+  export-windows:
+    name: Windows Export
+    runs-on: ubuntu-22.04 # Use 22.04 with godot 4
+    container:
+      image: barichello/godot-ci:4.4.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mkdir -v -p ~/.config/
+          mv /root/.config/godot ~/.config/godot
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      - name: Windows Build
+        run: |
+          mkdir -v -p build/windows
+          EXPORT_DIR="$(readlink -f build)"
+          cd $PROJECT_PATH
+          godot --headless --quiet --export-release "Windows Desktop" "$EXPORT_DIR/windows/$EXPORT_NAME.exe"
+      - name: Zip Windows Build
+        run: zip -j -q windows build/windows/*
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            windows.zip
+          generate_release_notes: true
+```
+
+Regarding the 'optimizations' I think exist here: This makes use of a single instance of this container instead of a
+separate instance for each platform, which I assume cuts down on resource usage (one spin-up instead of multiple).
+
+Some notes on the above script:
+
+- The `name` field appears under All workflows to the left when on the Actions tab of the repo
+- The `permissions.contents` value, I believe, allows the build to create the zip files toward the end
+- `on.push.tags` - I'm pretty sure there are other options here. What I wanted was a way to trigger these builds
+  consciously, and since tags are a manual decision for now, this seemed the most sensible way. It also ties into the
+  auto-generation of GitHub releases, which include the zipped binaries that are uploaded to GameJolt). I'm pretty sure the
+  `softprops/action-gh-release@v2` action also reads the tag and generates the release with that (it can even generate the
+  release notes, which is quite nice).
+- `jobs.job-name.container.image` - This version number here should match the version of Godot you're using.
+
+One regret I have is doing all this experimentation right on the master branch, so now I have a huge chunk of commit
+history that's just "try this", "remove that setting", "put that file back". It would have been much better to do all this
+on a branch, and simply configure the repo to initiate a build when a commit goes to that branch.
+
+### State Machines
+
+Enum variable vs Nodes
+
+Variable gets unruly quite quick (4+, as soon as double jump was needed)
