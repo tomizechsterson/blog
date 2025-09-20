@@ -31,7 +31,7 @@ Solution
 We can get around the problem by using a raycast to detect if there's a wall to hold onto. Here's what it looks like when
 the program is run with collisions visible:
 
-{screenshot}
+(screenshot)
 
 The arrow you see is the raycast, and can report whether or not it's colliding with anything.
 
@@ -44,7 +44,7 @@ if (!parent.wall_slide_detector.is_colliding()):
     return fall_state
 ```
 
-{perhaps explain python language selection}
+(perhaps explain python language selection)
 This gives us a nice way to fall when the player has slid to the bottom of a wall. As a bonus, this also helps us prevent
 the player from clinging onto a wall when jumping past blocks and barely bumping into them. Nice!
 
@@ -60,7 +60,7 @@ what could possibly be tried next. It was infuriating most of the time, to be cl
 such as `PWD` or a directory's contents is extremely helpful when debugging CI/CD nonsense). Not only that, but thankfully
 there's already a GitHub Action and container available that were made for exporting Godot projects.
 
-{link}
+(link)
 
 Here's a modified version of the above action to include some (what I believe to be) optimizations:
 
