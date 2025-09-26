@@ -1,0 +1,64 @@
+---
+title: Back to the Project
+date: '2025-09-25T21:21:34Z'
+tags: ['godot', 'project', 'tomato-man']
+summary: What in the world are we actually doing now?
+layout: PostLayoutReduced
+canonicalUrl:
+---
+
+Now, we should probably go over what is actually next for our good friend Tomato Man.
+
+<TOCInline toc={props.toc} asDisclosure collapse toHeading={3} />
+
+### Loops were meant to be closed
+
+So far, we have a game that does very little. This isn't the worst thing ever, but once you're done collecting all the
+pick-ups, the game just sits there with a dumb look on its face. Not exactly what we want.
+
+What we do want is to display some stats to the user, give them the ability to restart or exit, and ideally give them some way
+they can challenge themself, if they so desire. The idea is to show how many coins were collected, and how many enemies were
+defeated (hopefully, I get this far; enemies are currently in the Never[^1] section below). What would be _really_ nice is
+to implement a level timer that records how long it took to get to the end. This way, the user could try to beat their best
+time, or we could even implement a scoreboard. For the first iteration, we'll stick to only displaying the stats and best time.
+
+### Signals - Chain Through Layers, or Connect Directly to Final Node?
+
+One interesting conundrum that I've run into is this: If I have a node that needs to pass a signal up the scene tree, is it
+better to chain the signal up to its final destination (have each node in the chain listen for the signal from the node
+below, and then forward the signal further up the tree using its own signal), or simply have the destination node listen to
+that signal directly?
+
+To my ever-so-slightly trained eye, it seemed more simple to use the latter strategy. It sounds cleaner and more
+straightforward, and there are less signals being thrown around in general. On the other hand, chaining signals up the tree
+sounds like it could get confusing and messy pretty quick. Although, if nodes on the path also needed to respond to the
+signal, this could actually be pretty nice.
+
+After some research,[^2] it looks like it's generally considered good practice to chain signals up the tree. It's said that
+this makes nodes easier to re-use and test in isolation, both of which I very much appreciate. So, this is what we'll be
+doing.
+
+### Ok So What Are We _Actually_ Doing???
+
+Fine, we'll go over the actual task that's next up. No more pontificating and wishful thinking.
+
+- Now
+  - Implement the ending of the level and give option to restart or exit
+    - Add flag asset, related collisions, and signals
+    - Add end-level UI with stats display (coins for this iteration)
+    - Add option to restart level or exit game
+- Next
+  - Add a main menu with Start Game and Exit options
+  - Add pause menu in-game with Resume and Exit to Menu options
+- Never
+  - Add timer to level and end-level stats display
+  - Add tracking for best time
+  - Consider adding a Mac build
+  - Add enemies (idle, damage and death animations only)
+  - Add player attack, damage and death animations
+
+[^1]:
+    Yes, it's normally Now, Next, Later, but I like alliteration. This is really just what's currently on my mind to do
+    after the stuff under Next. It will also probably change fairly often, which is why I affectionately call it "never".
+
+[^2]: Which was really just reading the AI response and a single Reddit thread to a single search query
