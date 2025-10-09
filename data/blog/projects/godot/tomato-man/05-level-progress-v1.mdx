@@ -1,0 +1,72 @@
+---
+title: Level Progression
+date: '2025-10-08T21:43:00Z'
+tags: ['godot', 'project', 'tomato-man']
+summary: Well that was something
+layout: PostLayoutReduced
+canonicalUrl:
+---
+
+<TOCInline toc={props.toc} asDisclosure collapse />
+
+Let's see if I can manage to remember everything I've learned over the past few weeks dealing with level progression... I'm
+going off of straight-up memory, so, surely I won't forget anything. I did consider taking notes on a few occasions, but
+decided it was too much work. This was probably not ideal.
+
+## Getting Old Sucks
+
+Also, who would've thought restarting a level could be so difficult? Certainly not I. That is, until I managed to forget some
+fairly fundamental concepts. Namely, `queue_free()`, `PackedScene.instantiate()`, and `Node.add_child()`. Who would've
+thought that things which are shown in nearly every tutorial would be so useful? It's almost like these three methods are
+fundamental to Godot projects or something. And don't ask me how many tutorials I've done. That's the worst part...
+
+This led me to start pursuing the idea of manually resetting all the items in the level and respawning the player object
+manually, among other things. This got infuriating very quickly. Then, after several bouts of rage-googling, I finally ran
+across someone mentioning `queue_free()`, and then the memories started rolling in from the long-forgotten, deep recesses
+of my mind. Making use of this method, and the others mentioned above, made restarting the level much more straightforward,
+and it seems to just work with the way the nodes are currently organized. This may not be the most beautiful or elegant,
+but hey, at least it works.
+
+So now, the level is restarting, and it's even counting the coins with full tracking and everything. The end level flag
+even resets and is setup properly when the level is restarted, allowing the user to replay the level to their heart's
+content. If you'd like to check out the latest iteration, you can find it [here](https://gamejolt.com/games/tomato-man/1011995).
+
+## Quick Note on Mac Builds
+
+I looked into this ever so briefly, and found that an Apple Developer ID Certificate is required, which itself requires
+signing up for a $100/year developer account. It also sounds like I would need to be doing the builds on an actual Mac
+device, which sounds like a lot of work (I may be wrong about this...). Now, I'm not fundamentally against, or offended by,
+this, but I don't think this project warrants such things. Well ok, there is something that _does_ somewhat upset me: the only
+way for a Mac build to "just work" on a Mac, is to host the project on their actual App Store. The next best thing requires
+some documentation to help the user run the app when you do everything right[^1] _except_ for distribute on the App Store.
+Right now, it's iterations I'm going for, not profits, so I'll be forgoing this for now.
+
+## What's Next
+
+First things first, we need to go and clean up some stuff from that last body of work. There's some naming that could be
+improved, and some repeated bits that need to be refactored. I'd like to think I can make use of scene inheritance to
+make adding levels more straightforward, and I'm still not 100% convinced that the Marker2D is doing what I think it's doing
+for the player start.
+
+After this, we'll see about adding the two enemies from the art pack. They'll just idle, take damage and die for now to keep
+things simple. This will also require adding the attack, damage, and death animations for the player, to prove all this is
+working. Should be a decent next task.
+
+## Now/Next/Never
+
+- Now
+  - Refactor a bit
+  - Add Carrot and Mushroom enemies (idle, damage, death only)
+  - Add player attack, damage, death
+- Next
+  - Add timer to level and end-level
+  - Add tracking for best time
+- Never
+  - Main menu
+  - Pause menu
+  - Enemy movement and attack
+  - Level obstacles/items (spikes, platforms, ladders)
+
+[^1]:
+    As in the app is signed AND notarized (whatever that means...), which can only be done after signing up for the Apple
+    Developer Program.
