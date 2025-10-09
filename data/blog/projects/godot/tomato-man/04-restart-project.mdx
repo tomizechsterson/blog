@@ -11,7 +11,7 @@ Now, we should probably go over what is actually next for our good friend Tomato
 
 <TOCInline toc={props.toc} asDisclosure collapse toHeading={3} />
 
-### Loops were meant to be closed
+## Loops were meant to be closed
 
 So far, we have a game that does very little. This isn't the worst thing ever, but once you're done collecting all the
 pick-ups, the game just sits there with a dumb look on its face. Not exactly what we want.
@@ -22,7 +22,7 @@ defeated (hopefully, I get this far; enemies are currently in the Never[^1] sect
 to implement a level timer that records how long it took to get to the end. This way, the user could try to beat their best
 time, or we could even implement a scoreboard. For the first iteration, we'll stick to only displaying the stats and best time.
 
-### Signals - Chain Through Layers, or Connect Directly to Final Node?
+## Signals - Chain Through Layers, or Connect Directly to Final Node?
 
 One interesting conundrum that I've run into is this: If I have a node that needs to pass a signal up the scene tree, is it
 better to chain the signal up to its final destination (have each node in the chain listen for the signal from the node
@@ -38,7 +38,7 @@ After some research,[^2] it looks like it's generally considered good practice t
 this makes nodes easier to re-use and test in isolation, both of which I very much appreciate. So, this is what we'll be
 doing.
 
-### Ok So What Are We _Actually_ Doing???
+## Ok So What Are We _Actually_ Doing???
 
 Fine, we'll go over the actual task that's next up. No more pontificating and wishful thinking.
 
