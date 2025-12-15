@@ -17,7 +17,7 @@ There's also been one or two releases to GameJolt since the last article.
 
 Now, of course I couldn't stop there. The game now also has a nice parallax-scrolling background (4 layers), and a lot of
 new graphics. You'll notice some new screenshots on the [project page](/projects/godot-tomato-man) showcasing these, plus a
-fancy end-level screen, courtesy of Claude Code, who also did the game over screen. The level has even been expanded a bit,
+fancy end-level screen, courtesy of Claude Code (who also did the game over screen). The level has even been expanded a bit,
 to showcase the new background and slide ability.
 
 As per yuzh[^1], if you're interested in seeing the latest progress, you're always welcome to check it out for free over
@@ -28,6 +28,12 @@ As per yuzh[^1], if you're interested in seeing the latest progress, you're alwa
 Now, on to the main attraction. So, animations have sort of been a thing for this project, as one can imagine when building
 a platformer. The main character has a handful of animations implemented (jump, run, attack, damage, etc.), and there are
 still a handful more left to add, mainly all involving the ability to pick up and throw boxes.
+
+Notes:
+
+- State machine taught in most tutorials (that I've seen)
+- What happens when you need a state that can apply regardless of current action/state?
+  - State Transition works for global state (temp. invulnerability)
 
 [^1]:
     Just discovered an [amusing write-up](https://english.stackexchange.com/a/72678) (at least to me) on this, so I'm going
