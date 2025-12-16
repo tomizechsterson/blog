@@ -123,16 +123,18 @@ Also, make sure to uncomment these lines from next.config.js (or update them):
 
 ```js
 module.exports = () => {
-  ...
+  // ...
   return plugins.reduce((acc, next) => next(acc), {
-    ...
+    // ...
     images: {
       remotePatterns: [
-        {
-          // protocol: 'https',
-          // hostname: 'media1.giphy.com',
-        },
+        // {
+        // protocol: 'https',
+        // hostname: 'media1.giphy.com',
+        // },
       ],
       unoptimized,
-    },
+    }
+    // ...
+  },
 ```
