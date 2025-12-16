@@ -76,8 +76,8 @@ module.exports = () => {
     images: {
       remotePatterns: [
         {
-          protocol: 'https',
-          hostname: 'media1.giphy.com',
+          // protocol: 'https',
+          // hostname: 'media1.giphy.com',
         },
       ],
       unoptimized,

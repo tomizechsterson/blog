@@ -104,3 +104,35 @@ You can use the following implementation to display a 'gallery' of images in an 
 ```
 
 Images must be stored in the `public` folder, e.g. `public/static/images/someCoolPic.jpeg`.
+
+### Animated Gifs
+
+The following code snippet will display an animated gif within articles:
+
+```js
+<img
+  src="https://media1.giphy.com/media/v1.
+Y2lkPTc5MGI3NjExZTV4bmV4aWJ0bjlzdXZvbG1tbHN6eWdpeHFnMjY4aGx1MHh6c2psMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MGYY2FIs8VrfW
+/giphy.gif"
+  width={500}
+  height={300}
+/>
+```
+
+Also, make sure to uncomment these lines from next.config.js (or update them):
+
+```js
+module.exports = () => {
+  ...
+  return plugins.reduce((acc, next) => next(acc), {
+    ...
+    images: {
+      remotePatterns: [
+        {
+          // protocol: 'https',
+          // hostname: 'media1.giphy.com',
+        },
+      ],
+      unoptimized,
+    },
+```
