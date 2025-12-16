@@ -1,5 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const { withContentlayer } = require('next-contentlayer2')
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -75,7 +77,7 @@ module.exports = () => {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'picsum.photos',
+          hostname: 'media1.giphy.com',
         },
       ],
       unoptimized,
@@ -89,7 +91,7 @@ module.exports = () => {
         },
       ]
     },
-    webpack: (config, options) => {
+    webpack: (config, _options) => {
       config.module.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
