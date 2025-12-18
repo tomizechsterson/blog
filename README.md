@@ -104,3 +104,5 @@ You can use the following implementation to display a 'gallery' of images in an 
 ```
 
 Images must be stored in the `public` folder, e.g. `public/static/images/someCoolPic.jpeg`.
+
+Run `yarn add next@canary` to update the next NextJS version.
