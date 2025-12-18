@@ -29,16 +29,106 @@ As per yuzh[^1], if you're interested in seeing the latest progress, you're alwa
 
 ## Animations, Animations, Animations
 
-Now, on to the main attraction. So, animations have sort of been a thing for this project, as one can imagine when building
-a platformer. The main character has a handful of animations implemented (jump, run, attack, damage, etc.), and there are
-still a handful more left to add, mainly all involving the ability to pick up and throw boxes.
+Now, as we were. So, animations have sort of been a thing for this project, as one can imagine when building a platformer.
+The main character has a handful of animations implemented (jump, run, attack, damage, etc.), and there are still a handful
+left to add, mainly all involving the ability to pick up and throw boxes.
 
-Notes:
+Back in the day, when I was a young lad in 2023[^2] I was doing a lot of tutorials. Now, when I say "a lot of tutorials", what
+I'm really saying is "WAY too many tutorials. As in, probably 10x more than I should have. As a matter of fact, I carry
+great shame for the innumerable, obnoxious, unspeakable amount of tutorials that I did back then." One thing that I saw in
+those that covered animations, was that they often used what's called an `AnimationNodeStateMachine` as the root node of the
+`AnimationTree` node.[^3] Much like what's pictured below:
 
-- State machine taught in most tutorials (that I've seen)
-- What happens when you need a state that can apply regardless of current action/state?
-  - State Transition works for global state (temp. invulnerability)
+<Image
+  src="/static/images/articles/animations/state-machine-with-transitions.png"
+  alt="State Machine with Transitions image"
+  title="Seems sensible enough"
+  width={857}
+  height={369}
+/>
+
+After reading the documentation regarding animations, particularly [this one](https://docs.godotengine.org/en/stable/tutorials/animation/animation_tree.html),
+I learned that this is extremely useful... For 3d. There's some powerful and clever-looking stuff that makes 3d animations look
+very nice when using an `AnimationNodeStateMachine`. For our use case, it'll work, and you can even do this:
+
+<Image
+  src="/static/images/articles/animations/state-machine-no-transitions.png"
+  alt="State Machine with Transitions image"
+  title="Seems sensible enough"
+  width={731}
+  height={375}
+/>
+
+and it'll still work just fine. The aforementioned documentation explains how this works, which makes it make sense. For
+this project, each of those nodes in the state machine is an `AnimationNodeBlendSpace2D`, which allows you to play
+animations based on two axes. So, you'd pass in x and y values, and the engine will play the closest animation. Something
+like this:
+
+```gdscript
+$AnimationTree.get("parameters/playback").travel("Jump")
+$AnimationTree.set("parameters/Jump/blend_position", jumpVector)
+```
+
+You tell the state machine to 'travel' to the desired state, then you set its blend position to tell it what animation to
+play. As a side note, you can also use `AnimationNodeBlendSpace1D` for when you only need one axis.
+
+Now here's the kicker: What happens when you need a state that applies regardless of the current action/state? Let's say
+you have a temporary invulnerability state that lasts for a few seconds after taking damage. How might you do this? Strictly
+in code? I'm sure this could be made to work, but I found what I believe to be a better way:
+
+<Image
+  src="/static/images/articles/animations/blend-tree.png"
+  alt="Blend Tree image"
+  title="Seems sensible enough"
+  width={604}
+  height={524}
+/>
+
+A blend tree! Or, more technically, an `AnimationNodeBlendTree`.
+
+Here it is a little closer:
+
+<Image
+  src="/static/images/articles/animations/blend-tree-close.png"
+  alt="Blend Tree with Transitions image"
+  title="Seems sensible enough"
+  width={954}
+  height={431}
+/>
+
+You can see the same types of nodes that are used with the state machine: `BlendSpace1D`, `BlendSpace2D`, etc. and they work
+exactly the same way. The real difference here is that instead of telling a state mechine to travel to states, you set a
+'transition request' parameter and then set the blend position like before.
+
+```gdscript
+parent.animation_tree.set("parameters/state/transition_request", "jump")
+parent.animation_tree.set("parameters/jump/blend_position", parent.jumpVector)
+```
+
+Notice how with this strategy, you can use an `Add2` for a temporary invulnerability state, as you can see just before the
+output node. Any number of 'global' states can be added in this way, and they'll all be applied regardless of what state is
+selected in the `AnimationNodeTransition` (named "Transition" in the image above). Simply set their `add_amount` value like so:
+
+```gdscript
+# to deactivate, simply set to 0.0 instead
+animation_tree.set("parameters/temp_invuln/add_amount", 1.0)
+```
+
+And there you have it. A more sensible way to implement animations and allow for global, optional states. Now, in the
+interest of full disclosure, I'm sure that a Godot animation expert could see this and see a million things wrong with it,
+and that's great. If a better way ever becomes known to me, I'll be happy to give it a try and then maybe write about it, but
+until that day comes, I think this is just fine, and can probably take you pretty far. Enjoy!
+
+Until next time!
 
 [^1]:
-    Just discovered an [amusing write-up](https://english.stackexchange.com/a/72678) (at least to me) on this, so I'm going
+    Just discovered an amusing [write-up](https://english.stackexchange.com/a/72678) on this, so I'm going
     to start trying to use this phrase more often on this blog.
+
+[^2]: I'm being facetious here, to be clear.
+
+[^3]:
+    I will not be explaining Godot concepts at a beginner level here. I want to keep this blog aimed more at intermediate or
+    above since there are countless resources for getting started. If you're brand new to this engine, I highly recommend
+    checking out maybe ONE or TWO tutorials (and no more!), and then building a thing or two from scratch without any
+    tutorial hand-holding. This particular article assumes at least some exposure to Godot's animation features.
