@@ -1,6 +1,6 @@
 ---
 title: Animations, Animations, Animations
-date: '2025-12-10T19:31:56Z'
+date: '2025-12-24T01:30:00Z'
 tags: ['godot', 'project', 'tomato-man', 'learning', 'animation']
 summary: Turns out Godot animations have a neat feature
 layout: PostLayoutReduced
@@ -8,7 +8,7 @@ canonicalUrl:
 ---
 
 (I would've put a gif here of Steve Ballmer going "Developers, developers, developers!", but I couldn't find it within a
-minute or two, so you'll just have to imagine it while replacing the word "developers" with "animations")
+couple minutes, so you'll just have to imagine it while replacing the word "developers" with "animations")
 
 <TOCInline toc={props.toc} asDisclosure collapse toHeading={3} />
 
@@ -19,7 +19,7 @@ invulnerability when Tomato Man gets damaged, a death state (not only for Tomato
 new mushroom enemy), and the ability to attack the enemies. There's also been one or two releases to GameJolt since the last
 article.
 
-Now, of course I couldn't stop there. The game now also has a nice parallax-scrolling background (4 layers), and a lot of
+Now, of course I couldn't stop there. The game now also has a nice, 4-layer parallax-scrolling background, and a lot of
 new graphics. You'll notice some new screenshots on the [project page](/projects/godot-tomato-man) showcasing these, plus a
 fancy end-level screen, courtesy of Claude Code (who also did the game over screen). The level has even been expanded a bit,
 to showcase the new background and slide ability.
@@ -27,17 +27,15 @@ to showcase the new background and slide ability.
 As per yuzh[^1], if you're interested in seeing the latest progress, you're always welcome to check it out for free over
 [here](https://gamejolt.com/games/tomato-man/1011995).
 
-## Animations, Animations, Animations
+## Animations
 
 Now, as we were. So, animations have sort of been a thing for this project, as one can imagine when building a platformer.
 The main character has a handful of animations implemented (jump, run, attack, damage, etc.), and there are still a handful
 left to add, mainly all involving the ability to pick up and throw boxes.
 
-Back in the day, when I was a young lad in 2023[^2] I was doing a lot of tutorials. Now, when I say "a lot of tutorials", what
-I'm really saying is "WAY too many tutorials. As in, probably 10x more than I should have. As a matter of fact, I carry
-great shame for the innumerable, obnoxious, unspeakable amount of tutorials that I did back then." One thing that I saw in
+Back in the day, when I was a young lad in 2023[^2] I was doing a lot of tutorials.[^3] One thing that I saw in
 those that covered animations, was that they often used what's called an `AnimationNodeStateMachine` as the root node of the
-`AnimationTree` node.[^3] Much like what's pictured below:
+`AnimationTree` node.[^4] Much like what's pictured below:
 
 <Image
   src="/static/images/articles/animations/state-machine-with-transitions.png"
@@ -97,8 +95,9 @@ Here it is a little closer:
 />
 
 You can see the same types of nodes that are used with the state machine: `BlendSpace1D`, `BlendSpace2D`, etc. and they work
-exactly the same way. The real difference here is that instead of telling a state mechine to travel to states, you set a
-'transition request' parameter and then set the blend position like before.
+exactly the same way. The real difference here is that instead of telling a state machine to travel to states, you set a
+'transition request' parameter on the Transition node (which I called 'state' here) and then set the blend position like
+before.
 
 ```gdscript
 parent.animation_tree.set("parameters/state/transition_request", "jump")
@@ -106,8 +105,9 @@ parent.animation_tree.set("parameters/jump/blend_position", parent.jumpVector)
 ```
 
 Notice how with this strategy, you can use an `Add2` for a temporary invulnerability state, as you can see just before the
-output node. Any number of 'global' states can be added in this way, and they'll all be applied regardless of what state is
-selected in the `AnimationNodeTransition` (named "Transition" in the image above). Simply set their `add_amount` value like so:
+output node way on the right. Any number of 'global' states can be added in this way, and they'll all be applied regardless of
+what state is selected in the `AnimationNodeTransition` (named "Transition" in the image above). Simply set their
+`add_amount` value like so:
 
 ```gdscript
 # to deactivate, simply set to 0.0 instead
@@ -128,6 +128,11 @@ Until next time!
 [^2]: I'm being facetious here, to be clear.
 
 [^3]:
+    Now, when I say "a lot of tutorials", what I'm really saying is "WAY too many tutorials. As in, probably 10x more than I
+    should have. As a matter of fact, I carry great shame for the innumerable, obnoxious, unspeakable amount of tutorials
+    that I did back then."
+
+[^4]:
     I will not be explaining Godot concepts at a beginner level here. I want to keep this blog aimed more at intermediate or
     above since there are countless resources for getting started. If you're brand new to this engine, I highly recommend
     checking out maybe ONE or TWO tutorials (and no more!), and then building a thing or two from scratch without any
