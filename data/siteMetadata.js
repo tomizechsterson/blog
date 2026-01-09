@@ -5,7 +5,7 @@ const siteMetadata = {
   headerTitle: 'A Site That Has Things',
   description:
     'This site will eventually have things. With any luck, these things will be meaningful and/or valuable in some way. ' +
-    "Ideally, they'll be valuable for someone other than me, but hey, one step at a time.",
+    "Ideally, they'll be valuable for someone other than me, but that's up to you.",
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.tomaseychaner.com',
