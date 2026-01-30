@@ -11,7 +11,7 @@ Let's see how far this Godot rabbit hole can take us. Now that Tomato Man is in 
 try a different genre. I'm a big fan of RPG's, and I've even played some of the super old-school titles from back in the day.
 I can only remember the early Ultima series at this point, but I'm sure I've played others...[^1] So how hard could it
 possibly be to make one of those? I mean, those are super primitive games according to our standards, so surly I can slap
-one together, right...? Right?? Who cares? We're trying anyway.
+one together, right...? Right?? Who cares! We're trying anyway.
 
 The idea will be to learn some more Godot things and see if we can push the scope a bit further than with Tomato Man. Now,
 with an RPG, we'll need to focus on different features of the engine, such as UI bits, different tile-based features,
@@ -56,9 +56,16 @@ second one is from a PC. Yes, this game is very old. Here's a couple from later 
   height={443}
 />
 
-Still with the old look, but a bit better UI, and ever so slightly more detailed graphics. I'm pretty sure we won't need to
-output all the player's actions to the screen like these do, at least on the overworld map. I'd also like to have a
-separate battle screen, so we'll probably output more info there.
+Still with the old look, but a bit better UI, and ever so slightly more detailed graphics. These titles used grid-based
+movement, which means that the character would appear to teleport from tile to tile every time the movement keys were
+pressed. This is exactly the feel I'm going for here. The combat took place on a similar grid, with turn-based actions and
+randomness with attacks and such. They also had NPC's with dialogue, and I'm pretty sure there was sort of a quest system,
+which would both be great to replicate.
+
+If memory serves, they also had a basic, text-based inventory system, which we shouldn't need here. There's graphics that will
+allow us to at least make that quality-of-life upgrade. I'm pretty sure we won't need to output all the player's actions to
+the screen like these do, at least on the overworld map. I'd also like to have a separate battle screen, so we'll probably
+output more info there.
 
 This will be using assets from the awesome asset pack found [here](https://kenney.nl/data/itch/preview/). Specifically, the
 Roguelike set. There are also fonts and different UI art available (borders, etc.), which would be good to look into.
@@ -66,22 +73,33 @@ Roguelike set. There are also fonts and different UI art available (borders, etc
 ## Goals
 
 Primarily, the goal here is to increase scope and see how much farther I can get with a game project. I don't expect there
-to be nearly as much animation-related shenanigans, but there will be much more in the tile system. Plus, the dialogue
-system will require a pretty deep dive into UI Godot controls, and probably a plugin to handle the nuance here.
+to be nearly as much animation-related shenanigans, but there will be much more in the tile system, due to the completely
+different ruleset. Here, we'll need to get good with layering and configuring tile sets for collision, atlasing, and
+probably even interactions. No idea what the best way is to implement that last one, but we'll find out.
 
-Size-wise, I'd like to build one town, one outside area/world map, and one dungeon-type area.
+The dialogue system will require a pretty deep dive into UI Godot controls, and probably a plugin to handle the nuance here.
+It's going to be interesting to see how best to handle managing NPC dialogue as it relates to player actions/progress.
 
-- [ ] Dive into resources
-- [x] More tile map stuff (different rule-set)
-- [x] Dialogue, more in-game UI, pop-ups, etc
-- [x] Build 1 town, 1 area for random battles
+Another thing I very much need to come to grips with is Godot's resource system. This is an incredibly powerful tool that
+I've barely even begun to see, and this is a great opportunity to do a deep-dive on it. This will open up all kinds of
+potential for better code design and project organization, and these alone have a lot of implications. Vague, I know, but
+the only thing I remember is hearing about them in some tutorials and thinking to myself "Man, it'll be great when I finally
+manage to get to understanding _this_ feature."
+
+Size-wise, I'd like to build one town, one outside area/world map, and one dungeon-type area. This will require two
+different battle scenes: one for the world map, and one for the dungeon. This should give me enough to do, but not so much
+that I get bored (doesn't take much, so, fingers crossed...).
 
 ## Expectations
 
 This will be similar to Tomato Man, in that I won't be posting about every step of the process. I want to keep the posts
 here specifically for big "Aha!" moments, or major learnings. Now, this being said, we are building something in a
 different genre this time, so I do expect there to be more of these, because I will have to learn some new things.
-Particularly resources; I know they're very useful and powerful, but I've only used them in tutorials so far.
+Particularly resources; I know they're very useful and powerful, but I've only barely scratched the surface on these so far,
+having only used them in tutorials.
+
+So, don't expect any regularity here, but I will keep the project page up-to-date, and the GameJolt page (once it's up) will
+always have the latest version of the project, with release notes on each update.
 
 ## Hopes
 
