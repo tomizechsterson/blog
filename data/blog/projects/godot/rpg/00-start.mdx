@@ -1,0 +1,144 @@
+---
+title: Let's Try an RPG
+date: '2026-02-03T12:22:00Z'
+tags: ['godot', 'project', 'rpg']
+summary: How hard can it be???
+layout: PostLayoutReduced
+canonicalUrl:
+---
+
+Let's see how far this Godot rabbit hole can take us. Now that Tomato Man is in a good place, it's time to switch gears and
+try a different genre. I'm a big fan of RPG's, and I've even played some of the super old-school titles from back in the day.
+I can only remember the early Ultima series at this point, but I'm sure I've played others...[^1] So how hard could it
+possibly be to make one of those? I mean, those are super primitive games according to our standards, so surly I can slap
+one together, right...? Right?? Who cares! We're trying anyway.
+
+The idea will be to learn some more Godot things and see if we can push the scope a bit further than with Tomato Man. Now,
+with an RPG, we'll need to focus on different features of the engine, such as UI bits, different tile-based features,
+resources, and possibly even exploring BB Code and/or a dialogue plugin.[^2]
+
+<TOCInline toc={props.toc} asDisclosure collapse toHeading={4} />
+
+## What We're Building
+
+Here's the basic idea (pictures are worth a thousand words):
+
+<Image
+  src="/static/images/articles/rpg-start/Ultima1a.png"
+  alt="Ultima 1 image"
+  title="Yes, THAT old-school"
+  width={825}
+  height={412}
+/>
+<Image
+  src="/static/images/articles/rpg-start/Ultima1b.jpg"
+  alt="Ultima 1 image with UI"
+  title="Yup, still that old-school"
+  width={710}
+  height={443}
+/>
+
+Those two are from, what I believe to be, Ultima I. I'm pretty sure the first one is from an Apple II or something, and the
+second one is from a PC. Yes, this game is very old. Notice how the enemies are on the world map; there's no separate battle
+scene in these games. Here's a couple from later entries to the series:
+
+<Image
+  src="/static/images/articles/rpg-start/Ultima4.jpg"
+  alt="Ultima 4 image"
+  title="Ultima 4. Love that dancing skeleton over there"
+  width={710}
+  height={443}
+/>
+<Image
+  src="/static/images/articles/rpg-start/Ultima5.jpg"
+  alt="Ultima 5 image with UI"
+  title="Ultima 5. Still old school, but we're doing better"
+  width={710}
+  height={443}
+/>
+
+Still with the old look, but a bit better UI, and ever so slightly more detailed graphics. All these titles used grid-based
+movement, which means that the character would appear to teleport from tile to tile every time the movement keys were
+pressed. This is exactly the feel I'm going for here. The combat took place on a similar grid, with turn-based actions and
+randomness with attacks and such. Later entries even added separate scenes/maps for the battles. They also had NPC's with
+dialogue, and I'm pretty sure there was sort of a quest system, which would both be great to replicate.
+
+If memory serves, they also had a basic, text-based inventory system, which we shouldn't need here. There's graphics that will
+allow us to at least make that quality-of-life upgrade by making it visual. I'm pretty sure we won't need to output all the
+player's actions to the screen like these do, at least on the overworld map. I'd also like to have a separate battle screen,
+if I can stay motivated, so we'll probably show more info there. Otherwise, we'll simply print battle messages, and keep
+the output quiet otherwise.
+
+This will be using assets from the awesome asset pack found [here](https://kenney.nl/data/itch/preview/). Specifically, the
+Roguelike set. There are also fonts and different UI art available (borders, etc.), which would be good to look into.
+
+## Goals
+
+Primarily, the goal here is to increase scope and see how much farther I can get with a game project. I don't expect there
+to be nearly as much animation-related shenanigans, but there will be much more in the tile system, due to the completely
+different ruleset. Here, we'll need to get good with layering and configuring tile sets for collision, atlasing, and
+probably even interactions. No idea what the best way is to implement that last one, but we'll find out.
+
+The dialogue system will require a pretty deep dive into the UI controls in Godot, and probably a plugin to handle the nuance
+here. It's going to be interesting to see how best to handle managing NPC dialogue as it relates to player actions/progress.
+
+Another thing I very much need to come to grips with is Godot's resource system. This is an incredibly powerful tool that
+I've barely even begun to look into, and this is a great opportunity to do a deep-dive on it. This will open up all kinds of
+potential for better code design and project organization, and these alone have a lot of implications. Vague, I know, but
+the only thing I remember is hearing about them in some tutorials and thinking to myself "Man, it'll be great when I finally
+manage to understand _this_ feature."
+
+Size-wise, I'd like to build one town, one outside area/world map, and one dungeon-type area. We'll keep enemies on the main
+map and forego separate battle scenes.[^3] This should give me enough to do, but not so much that I get bored (doesn't take
+much, so, fingers
+crossed...).
+
+## Expectations
+
+This will be similar to Tomato Man, in that I won't be posting about every step of the process. I want to keep the posts
+here specifically for big "Aha!" moments, or major learnings. Now, this being said, we are building something in a
+different genre this time, so I do expect there to be more of these, because I will have to learn some new things.
+Particularly resources; I know they're very useful and powerful, but I've only barely scratched the surface on these so far,
+having only used them in tutorials.
+
+So, don't expect any regularity here, but I will keep the project page up-to-date, and the GameJolt page (once it's up) will
+always have the latest version of the project, with release notes on each update. I do intend to write something up real
+quick as soon as the GameJolt page goes up, however. This should be around the time we have enough to show that I can create a
+card image and get some screenshots on the project page here.
+
+## Hopes
+
+Here are some things that would be quite nice to explore, in addition to everything above:
+
+- Some more fancy features with the music system
+  - It'd be really cool to have the music fade in and out between different maps, or even dip in volume when entering a
+    house in the town.[^4]
+- Maybe we could actually build out more of a menu when starting the game. I know Tomato Man didn't have one, but I did make
+  a very basic one for Space Asteroids, and it'd be nice to expand on that for this project. Some things to add might be:
+  - Additional options
+    - Screen resolution, full screen/windowed (I assume this alone is probably a big deal)
+    - Control scheme selection (wasd, home row, etc.)
+    - Save file management
+  - A load/continue game option
+  - A credits option
+- Maybe we can finally get a handle on the particle system... I know this is a huge feature in Godot, so I won't be holding
+  my breath for this. However, it would be neat to use this for stuff in combat. That might help reduce scope on this piece.
+- Figuring out how to use Aseprite for additional assets, or modifying the current ones. Since this art pack is so
+  low-resolution, maybe even I could manage to make something that could be used in-game. Wishful thinking? Probably. That's
+  why it's here, as the last entry in the list.
+
+As one can imagine, these are very far into the "Never" portion of what I like to call Now Next Never (as opposed to what's
+commonly referred to as Now Next Later). It'll be good to have them here as a reminder when we've progressed a ways into
+this project.
+
+Now that all that's cleared up, onward we go!
+
+[^1]: It's been a very, very, _very_ long time, ok? Gimme a break!
+
+[^2]:
+    A tutorial from a long time ago used a really neat plugin, so I'll have to go back and see if it's still around.
+    Either way, I have no doubt there's a good plugin to try.
+
+[^3]: Otherwise, this would require two different battle scenes: one for the world map, and one for the dungeon.
+
+[^4]: I'm pretty sure Link to the Past did this back in the day...
