@@ -39,7 +39,8 @@ Here's the basic idea (pictures are worth a thousand words):
 />
 
 Those two are from, what I believe to be, Ultima I. I'm pretty sure the first one is from an Apple II or something, and the
-second one is from a PC. Yes, this game is very old. Here's a couple from later entries to the series:
+second one is from a PC. Yes, this game is very old. Notice how the enemies are on the world map; there's no separate battle
+scene in these games. Here's a couple from later entries to the series:
 
 <Image
   src="/static/images/articles/rpg-start/Ultima4.jpg"
@@ -56,16 +57,17 @@ second one is from a PC. Yes, this game is very old. Here's a couple from later 
   height={443}
 />
 
-Still with the old look, but a bit better UI, and ever so slightly more detailed graphics. These titles used grid-based
+Still with the old look, but a bit better UI, and ever so slightly more detailed graphics. All these titles used grid-based
 movement, which means that the character would appear to teleport from tile to tile every time the movement keys were
 pressed. This is exactly the feel I'm going for here. The combat took place on a similar grid, with turn-based actions and
-randomness with attacks and such. They also had NPC's with dialogue, and I'm pretty sure there was sort of a quest system,
-which would both be great to replicate.
+randomness with attacks and such. Later entries even added separate scenes/maps for the battles. They also had NPC's with
+dialogue, and I'm pretty sure there was sort of a quest system, which would both be great to replicate.
 
 If memory serves, they also had a basic, text-based inventory system, which we shouldn't need here. There's graphics that will
 allow us to at least make that quality-of-life upgrade by making it visual. I'm pretty sure we won't need to output all the
 player's actions to the screen like these do, at least on the overworld map. I'd also like to have a separate battle screen,
-so we'll probably output more info there.
+if I can stay motivated, so we'll probably show more info there. Otherwise, we'll simply print battle messages, and keep
+the output quiet otherwise.
 
 This will be using assets from the awesome asset pack found [here](https://kenney.nl/data/itch/preview/). Specifically, the
 Roguelike set. There are also fonts and different UI art available (borders, etc.), which would be good to look into.
@@ -115,7 +117,7 @@ Here are some things that would be quite nice to explore, in addition to everyth
   a very basic one for Space Asteroids, and it'd be nice to expand on that for this project. Some things to add might be:
   - Additional options
     - Screen resolution, full screen/windowed (I assume this alone is probably a big deal)
-    - Control scheme (wasd, home row, etc.)
+    - Control scheme selection (wasd, home row, etc.)
     - Save file management
   - A load/continue game option
   - A credits option
