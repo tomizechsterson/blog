@@ -138,3 +138,27 @@ module.exports = () => {
     // ...
   },
 ```
+
+### GitHub-Style Alerts
+
+Blockquote-based callout boxes, provided by the `remark-github-blockquote-alert` plugin (configured in `contentlayer.config.ts`, styles imported in `app/layout.tsx`). Use these for visually distinct asides — "heads up," "watch out," "pro tip," etc.
+
+Five variants, each with its own color and icon (matches the GitHub spec):
+
+| Syntax           | Color  | Icon      | Use for                               |
+| ---------------- | ------ | --------- | ------------------------------------- |
+| `> [!NOTE]`      | Blue   | Info      | Useful information worth highlighting |
+| `> [!TIP]`       | Green  | Lightbulb | Optional advice; "you could also..."  |
+| `> [!IMPORTANT]` | Purple | Megaphone | Key info a reader shouldn't skim past |
+| `> [!WARNING]`   | Yellow | Triangle  | Something to watch out for            |
+| `> [!CAUTION]`   | Red    | Stop sign | Risk of breakage / bad outcome        |
+
+Syntax — a standard markdown blockquote whose first line is the variant tag:
+
+```md
+> [!TIP]
+> Useful information that may help. Continuation lines need their own
+> `>` prefix or the alert silently degrades to a regular blockquote.
+```
+
+Inline markdown (bold, italics, code, links) works inside the body. Multi-paragraph alerts work too — separate paragraphs with a `>` on its own line.
