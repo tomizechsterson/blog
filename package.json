@@ -8,7 +8,7 @@
     "build": "contentlayer2 build && cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "serve": "next start",
     "analyze": "contentlayer2 build && cross-env ANALYZE=true next build --webpack",
-    "lint": "contentlayer2 build && eslint --fix app components layouts scripts && tsc --noEmit",
+    "lint": "contentlayer2 build && eslint --fix --no-warn-ignored app components layouts scripts data *.js *.mjs *.ts && tsc --noEmit",
     "prepare": "husky"
   },
   "dependencies": {
@@ -79,10 +79,10 @@
     "contentlayer2": "0.5.8"
   },
   "lint-staged": {
-    "*.+(js|jsx|ts|tsx)": [
+    "*.+(js|jsx|mjs|ts|tsx)": [
       "eslint --fix"
     ],
-    "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
+    "*.+(js|jsx|mjs|ts|tsx|json|css|md|mdx)": [
       "prettier --write"
     ]
   },
