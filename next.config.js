@@ -87,22 +87,5 @@ module.exports = () => {
         },
       ]
     },
-    turbopack: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
-    // Only used by `yarn analyze`, which runs the webpack builder.
-    webpack: (config, _options) => {
-      config.module.rules.push({
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      })
-
-      return config
-    },
   })
 }
