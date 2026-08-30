@@ -944,17 +944,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.39.5":
+"@eslint/js@npm:9.39.5, @eslint/js@npm:^9.39.5":
   version: 9.39.5
   resolution: "@eslint/js@npm:9.39.5"
   checksum: 10/042d522f28da10ab205f368a94b620334418eb13a5226e50f7edd03dbe26809eb477d0b7a4dc3968b43a98f6ce594f6c03731214c3e0386fd5bcb74fdb9df64c
-  languageName: node
-  linkType: hard
-
-"@eslint/js@npm:^9.16.0":
-  version: 9.20.0
-  resolution: "@eslint/js@npm:9.20.0"
-  checksum: 10/2304cd725700046ba611f06bf9cd0941db7e02e0d602d8fd9e4734c13067699954597b9a3a2b048ce02eb0550373669d2ab7be6edaf6abf7b67eb19d1276b57b
   languageName: node
   linkType: hard
 
@@ -10136,7 +10129,7 @@ __metadata:
   resolution: "tomizechsterson-blog@workspace:."
   dependencies:
     "@eslint/eslintrc": "npm:^3.3.6"
-    "@eslint/js": "npm:^9.16.0"
+    "@eslint/js": "npm:^9.39.5"
     "@headlessui/react": "npm:^2.2.10"
     "@next/bundle-analyzer": "npm:16.3.3"
     "@tailwindcss/forms": "npm:^0.5.11"
