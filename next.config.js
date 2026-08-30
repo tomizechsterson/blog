@@ -1,7 +1,4 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const { withContentlayer } = require('next-contentlayer2')
-
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -63,16 +60,15 @@ const unoptimized = process.env.UNOPTIMIZED ? true : undefined
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
 module.exports = () => {
-  const plugins = [withContentlayer, withBundleAnalyzer]
+  const plugins = [withBundleAnalyzer]
   return plugins.reduce((acc, next) => next(acc), {
     output,
     basePath,
+    // `next dev` otherwise appends a self-regenerating block to CLAUDE.md.
+    agentRules: false,
     reactStrictMode: true,
     trailingSlash: false,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    eslint: {
-      dirs: ['app', 'components', 'layouts', 'scripts'],
-    },
     images: {
       remotePatterns: [
         // {
@@ -91,6 +87,15 @@ module.exports = () => {
         },
       ]
     },
+    turbopack: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
+    // Only used by `yarn analyze`, which runs the webpack builder.
     webpack: (config, _options) => {
       config.module.rules.push({
         test: /\.svg$/,
