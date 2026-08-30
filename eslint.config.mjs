@@ -36,6 +36,10 @@ export default [
     // it (as `compat.extends('plugin:jsx-a11y/recommended')` would) trips ESLint's
     // "Cannot redefine plugin" check. Apply the recommended rules only.
     name: 'jsx-a11y/recommended-rules',
+    // Must match the `files` of eslint-config-next's `next` block, which is what
+    // registers the plugin. Without this, the rules also apply to files that
+    // block skips (notably `.cjs`) and ESLint fails with "Could not find plugin".
+    files: ['**/*.{js,jsx,mjs,ts,tsx,mts,cts}'],
     rules: jsxA11y.flatConfigs.recommended.rules,
   },
   {
