@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useSyncExternalStore } from 'react'
 import { useTheme } from 'next-themes'
 import {
   Menu,
@@ -54,12 +54,22 @@ const Monitor = () => (
 )
 const Blank = () => <svg className="h-6 w-6" />
 
-const ThemeSwitch = () => {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme, resolvedTheme } = useTheme()
+// `false` while server-rendering and during hydration, `true` afterwards. The
+// theme is only known on the client, so the icon has to stay blank until then
+// or the markup won't match. Done via useSyncExternalStore rather than a
+// setState-in-effect, which react-hooks/set-state-in-effect flags for the extra
+// render pass it forces.
+const emptySubscribe = () => () => {}
+const useHasHydrated = () =>
+  useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  )
 
-  // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), [])
+const ThemeSwitch = () => {
+  const mounted = useHasHydrated()
+  const { theme, setTheme, resolvedTheme } = useTheme()
 
   return (
     <div className="flex items-center">

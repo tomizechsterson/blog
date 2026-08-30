@@ -4,21 +4,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Stack
 
-Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · Contentlayer2 (MDX) · Yarn 4 (`packageManager` field is authoritative — do not use `npm` or `pnpm`).
+Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 · Contentlayer2 (MDX) · Yarn 4 (`packageManager` field is authoritative — do not use `npm` or `pnpm`).
+
+Version-exact Next.js docs ship locally in `node_modules/next/dist/docs/` — prefer them over recalled API details.
 
 ## Commands
 
-- `yarn dev` — local dev server (Next.js).
-- `yarn build` — `next build` followed by `scripts/postbuild.mjs` (RSS generation). Building also runs `contentlayer` via `next-contentlayer2`, regenerating `.contentlayer/generated/`, `app/tag-data.json`, and `public/search.json`.
+- `yarn dev` — local dev server: `contentlayer2 dev` (content watcher) and `next dev` run together under `concurrently`.
+- `yarn build` — `contentlayer2 build`, then `next build`, then `scripts/postbuild.mjs` (RSS generation). The contentlayer step regenerates `.contentlayer/generated/`, `app/tag-data.json`, and `public/search.json`.
 - `yarn serve` — serve the production build.
-- `yarn lint` — runs ESLint (`--fix`) on `pages app components lib layouts scripts` **and** `tsc --noEmit`. This is the only typecheck path; there is no standalone `typecheck` script.
-- `yarn analyze` — `ANALYZE=true next build`, opens the bundle analyzer.
+- `yarn lint` — runs `contentlayer2 build` (the typecheck needs the generated types), then ESLint (`--fix`) on `app components layouts scripts`, then `tsc --noEmit`. This is the only typecheck path; there is no standalone `typecheck` script. `next lint` was removed in Next 16, so this calls `eslint` directly.
+- `yarn analyze` — `ANALYZE=true next build --webpack`, opens the bundle analyzer. `@next/bundle-analyzer` is webpack-only and silently no-ops under Turbopack, hence the flag.
 
 There are no automated tests in this repo.
 
 ## Content pipeline
 
 All long-form content is MDX under `data/`, transformed at build time by Contentlayer into a typed module set under `.contentlayer/generated/` (gitignored). App code imports the generated arrays via `contentlayer/generated` (e.g. `allBlogs`, `allProjects`, `allAuthors`).
+
+Contentlayer runs as its own CLI step rather than through `next-contentlayer2` (no longer a dependency). That plugin generated content from a webpack `beforeCompile` hook, which Turbopack — the default bundler since Next 16 — never calls, so a cold build died on a missing `contentlayer/generated`.
+
+`package.json` pins every `@contentlayer2/*` package to a single version via `resolutions`. `pliny` depends on an older `contentlayer2`, and a second copy breaks generation outright: each copy builds its own `Symbol('contentlayer:Cwd')` DI tag, so services provided by one copy are invisible to the other.
 
 **Schema is centralized in `contentlayer.config.ts`.** Three document types:
 
