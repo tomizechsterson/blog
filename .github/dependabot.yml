@@ -1,0 +1,28 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    # There are ~54 direct dependencies here. Ungrouped, a weekly run would open
+    # a PR per package; grouping keeps a normal week down to two.
+    open-pull-requests-limit: 5
+    groups:
+      # Split prod from dev so the dev batch, which cannot affect the deployed
+      # site, can be reviewed more quickly than the one that can.
+      production-minor-patch:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+      development-minor-patch:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+    # Majors are deliberately left out of the groups above so each arrives as its
+    # own PR. Recent ones needed individual judgment: ESLint 9 -> 10 was declined
+    # in favor of staying on 9, and lint-staged 13 -> 17 was taken only because
+    # nothing in ^13 cleared its advisories.
