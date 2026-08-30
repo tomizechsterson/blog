@@ -20,7 +20,7 @@ export default function ProjectLayout({ children, frontMatter, allProjects }: La
           {title}
         </h1>
       </div>
-      <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
+      <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:space-y-0 xl:gap-x-8">
         <div className="flex flex-col items-center pt-8">
           <div className="flex space-x-7 pt-6">
             {initialDemo && (
